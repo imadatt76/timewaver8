@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>セッションメニュー・料金 | タイムウェーバー8</title>
+  <meta name="description" content="タイムウェーバー8のセッションメニューと料金一覧。LINEセッション・Zoomセッションから選べます。初回お試し2,500円〜。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="page-summary" content="タイムウェーバー8のセッションについて教えてください。
+
+タイムウェーバー8ではLINEセッションとZoomセッションの2種類があります。LINEセッションは非同期テキスト報告形式で、目的別コースが11種類あります（2,000〜9,800円）。Zoomセッションはオンライン対面で、時間で選ぶ3コースです（6,000〜19,000円）。波動調整コース受講中・サブスク利用中の方は割引料金が適用されます。どんなことで悩んでいるか、どんなセッションが気になっているかを話してください。一緒に選びます。">
+  <style>
+    /* ========================================
+       session.html 専用スタイル
+       ======================================== */
+
+    /* アクセントカラー */
+    :root {
+      --accent-gold: #a07840;
+      --accent-gold-light: rgba(160, 120, 64, 0.1);
+      --bg-zoom: #dde0dc;
+    }
+
+    /* ページヒーロー */
+    .page-hero--session {
+      background: var(--bg-alt);
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero--session::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .page-hero--session::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .page-hero--session h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      margin: 10px 0 20px;
+    }
+
+    .page-hero--session .page-hero-desc {
+      color: var(--text-mid);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* セッション種別ナビ（sticky） */
+    .session-type-nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 60px;
+      z-index: 50;
+    }
+
+    .session-type-nav .container {
+      display: flex;
+      gap: 0;
+    }
+
+    .session-type-nav a {
+      padding: 14px 20px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--text-mid);
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .session-type-nav a:hover,
+    .session-type-nav a.active {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* 割引バナー */
+    .discount-notice {
+      background: rgba(46, 44, 42, 0.05);
+      border-left: 3px solid var(--text-mid);
+      padding: 16px 20px;
+      margin: 0 0 48px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .discount-notice strong {
+      color: var(--text);
+    }
+
+    /* LINE vs Zoom 選び方比較 */
+    .format-compare {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-bottom: 64px;
+    }
+
+    .format-card {
+      background: var(--bg-alt);
+      padding: 36px 32px;
+    }
+
+    .format-card .format-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .format-card h3 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .format-card p {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+
+    .format-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      margin-top: 4px;
+    }
+
+    .format-card .format-cta {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .format-card .format-cta:hover {
+      border-color: var(--text);
+    }
+
+    /* セクション内 サブナビ（LINE/Zoom切り替え） */
+    .session-sub-nav {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .session-sub-nav button {
+      padding: 14px 28px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--text-mid);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      margin-bottom: -1px;
+      font-family: var(--font-sans);
+    }
+
+    .session-sub-nav button.active {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* タブパネル */
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* コースグループ（カテゴリ見出し） */
+    .course-group {
+      margin-bottom: 56px;
+    }
+
+    .course-group-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* コースカード */
+    .course-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-bottom: 0;
+    }
+
+    .course-card {
+      background: var(--bg-alt);
+      padding: 28px 26px;
+    }
+
+    .course-card-header {
+      margin-bottom: 16px;
+    }
+
+    .course-name {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .course-price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .course-price {
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--accent-gold);
+    }
+
+    .course-price-unit {
+      font-size: 12px;
+      color: var(--text-mid);
+    }
+
+    .course-price-discount {
+      font-size: 12px;
+      color: var(--accent-gold);
+      background: var(--accent-gold-light);
+      padding: 3px 8px;
+    }
+
+    .course-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+
+    .course-meta {
+      list-style: none;
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    .course-meta li {
+      display: flex;
+      gap: 8px;
+    }
+
+    .course-meta li::before {
+      content: '–';
+      flex-shrink: 0;
+      color: var(--text-light);
+    }
+
+    .course-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-top: 14px;
+    }
+
+    /* サブスクプラン（ライト・スタンダード内） */
+    .sub-plan-box {
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .sub-plan-title {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .sub-plan-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .sub-plan-item {
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .sub-plan-item strong {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .sub-plan-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* Zoomコースカード */
+    .zoom-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-bottom: 40px;
+    }
+
+    .zoom-card {
+      background: rgba(255, 255, 255, 0.45);
+      padding: 36px 28px;
+    }
+
+    .zoom-card .zoom-time {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .zoom-card .zoom-name {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+
+    .zoom-card .zoom-price {
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+      color: var(--accent-gold);
+    }
+
+    .zoom-card .zoom-price-unit {
+      font-size: 12px;
+      color: var(--text-mid);
+    }
+
+    .zoom-card .course-divider {
+      margin: 20px 0;
+    }
+
+    .zoom-card .course-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    .zoom-note {
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 0;
+      padding: 20px;
+      border: 1px solid rgba(46,44,42,0.15);
+      background: rgba(255,255,255,0.3);
+    }
+
+    .zoom-note p {
+      margin-bottom: 8px;
+    }
+
+    .zoom-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* セクション見出し＋画像 */
+    .section-heading-img {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .section-heading-img img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    .section-heading-img .heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .section-heading-img h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+    }
+
+    /* Zoomセクション背景 */
+    .zoom-section-wrap {
+      background: var(--bg-zoom);
+      margin: 0 -24px;
+      padding: 48px 24px 56px;
+    }
+
+    /* カテゴリラベル（LINE/Zoom区分） */
+    .format-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      margin-bottom: 28px;
+    }
+
+    .format-badge--zoom {
+      border-color: rgba(46,44,42,0.2);
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* ヒーリーセクション（プレースホルダー） */
+    .healy-placeholder {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-light);
+    }
+
+    .healy-placeholder h3 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      color: var(--text-mid);
+    }
+
+    .healy-placeholder p {
+      font-size: 13px;
+    }
+
+    /* お申込み・決済 */
+    .apply-section {
+      padding: 80px 0;
+    }
+
+    .apply-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    .apply-card {
+      background: var(--bg-alt);
+      padding: 36px 32px;
+    }
+
+    .apply-card h3 {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .apply-list {
+      list-style: none;
+    }
+
+    .apply-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .apply-list li:last-child {
+      border-bottom: none;
+    }
+
+    .apply-list strong {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .apply-list a {
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .apply-list a:hover {
+      border-color: var(--text);
+    }
+
+    .apply-notice {
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.9;
+    }
+
+    /* デスクトップ（769px以上） */
+    @media (min-width: 769px) {
+      .format-compare {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .zoom-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .apply-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+
+      .sub-plan-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .session-type-nav a {
+        padding: 18px 32px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">タイムウェーバー<span>8</span></a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">タイムウェーバーとは</a></li>
+        <li><a href="healy.html">ヒーリーとは</a></li>
+        <li><a href="session.html">セッション</a></li>
+        <li><a href="voice.html">お客様の声</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="blog/">ブログ</a></li>
+        <li><a href="qa.html">よくある質問</a></li>
+        <li class="nav-sep">
+          <div class="nav-cta-group">
+            <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="nav-cta nav-cta--gpt">ChatGPTに相談</a>
+            <a href="line.html" class="nav-cta nav-cta--line">LINE登録</a>
+          </div>
+          <div class="nav-sns-text">
+            <span class="nav-sns-label">SNS</span>
+            <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener">note</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-header-gpt">ChatGPT</a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ページヒーロー -->
+<section class="page-hero--session">
+  <div class="container" style="position:relative; z-index:1;">
+    <p class="section-label">Session Menu</p>
+    <h1>セッションメニュー・料金</h1>
+    <p class="page-hero-desc">タイムウェーバーとヒーリー、2種類の機器を使ったセッションをご提供しています。<br>生活スタイルや目的に合わせてお選びください。</p>
+  </div>
+</section>
+
+<!-- セッション種別ナビ（sticky） -->
+<nav class="session-type-nav">
+  <div class="container">
+    <a href="#timewaver" class="active">タイムウェーバー</a>
+    <a href="#healy">ヒーリー</a>
+  </div>
+</nav>
+
+<!-- ================================
+     タイムウェーバーセクション
+     ================================ -->
+<section id="timewaver" style="padding: 80px 0 40px;">
+  <div class="container">
+
+    <div class="section-heading-img">
+      <img src="assets/images/timewaver.png" alt="タイムウェーバー">
+      <div class="heading-text">
+        <p class="section-label">TimeWaver</p>
+        <h2>タイムウェーバーセッション</h2>
+      </div>
+    </div>
+
+    <!-- LINE vs Zoom 比較 -->
+    <div class="format-compare">
+      <div class="format-card">
+        <p class="format-label">LINE SESSION</p>
+        <h3>LINEセッション</h3>
+        <span class="format-tag">テキスト報告</span>
+        <p style="margin-top:16px;">LINEやメールを通じて分析・調整の報告を受け取る形式です。時間の拘束がなく、自分のペースで受けられます。目的や悩みに応じた11種類のコースから選べます。</p>
+        <p>初めての方はまずこちらがおすすめです。</p>
+        <a href="#line" class="format-cta">LINEセッションを見る →</a>
+      </div>
+      <div class="format-card">
+        <p class="format-label">ZOOM SESSION</p>
+        <h3>Zoomセッション</h3>
+        <span class="format-tag">オンライン対面・リアルタイム</span>
+        <p style="margin-top:16px;">Zoomを使ったオンライン対面セッションです。分析・調整をリアルタイムで進め、結果の報告はセッション後にLINE等でお届けします。</p>
+        <p>直接話しながら進めたい方に向いています。</p>
+        <a href="#zoom" class="format-cta">Zoomセッションを見る →</a>
+      </div>
+    </div>
+
+    <!-- 割引案内 -->
+    <div class="discount-notice">
+      <strong>波動調整中の方割引について</strong><br>
+      波動調整コース（月次・サブスク）の受講中・利用期間中の方は、対象コースが割引価格でご利用いただけます。各コースに「波動調整中の方」の料金を記載しています。
+    </div>
+
+    <!-- ===== LINEセッション ===== -->
+    <div id="line" style="padding-top: 16px;">
+      <p class="section-label">LINE Session</p>
+      <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,24px); font-weight:300; letter-spacing:0.08em; margin-bottom: 40px;">LINE セッション</h2>
+
+      <!-- 入門コース -->
+      <div class="course-group">
+        <p class="course-group-label">INTRODUCTORY — 入門・お試し</p>
+        <div class="course-grid">
+
+          <!-- 初回お試し -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">波動調整コース<br>初回お試し</p>
+              <div class="course-price-block">
+                <span class="course-price">2,500<span class="course-price-unit">円</span></span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>願望2つ、オーラ調整</li>
+              <li>調整期間：1ヶ月</li>
+              <li>願望追加：1つにつき1,000円</li>
+            </ul>
+            <p class="course-desc">タイムウェーバーを初めて体験する方向けの入門コースです。オーラ調整と阻害要因の分析・調整を体験できます。「効果があるのか試してみたい」という方はここから始めてみてください。</p>
+          </div>
+
+          <!-- お誕生月コース -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">お誕生月コース</p>
+              <div class="course-price-block">
+                <span class="course-price">2,000<span class="course-price-unit">円</span></span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>オーラ調整、願望1つ</li>
+              <li>調整期間：1ヶ月</li>
+              <li>願望追加：1つにつき2,000円</li>
+              <li>誕生月・前月が対象</li>
+            </ul>
+            <p class="course-desc">お誕生日のタイミングに合わせて、新しい1年をエネルギーの整った状態でスタートするコースです。お申し込みの際に生年月日をお知らせください。</p>
+            <div class="sub-plan-box">
+              <p class="sub-plan-title">掛けっぱなしコース（サブスク）</p>
+              <div class="sub-plan-grid">
+                <div class="sub-plan-item">
+                  <strong>6ヶ月</strong>
+                  9,000円
+                </div>
+                <div class="sub-plan-item">
+                  <strong>12ヶ月</strong>
+                  17,000円
+                </div>
+              </div>
+              <p class="sub-plan-note">※願望の変更・途中解約・返金は不可です。</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 波動調整コース -->
+      <div class="course-group">
+        <p class="course-group-label">CORE — 波動調整コース</p>
+        <div class="course-grid">
+
+          <!-- ライトプラン -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">波動調整コース<br>ライトプラン</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>願望1つ、オーラ調整</li>
+              <li>調整期間：1ヶ月</li>
+              <li>願望追加：1つにつき2,000円</li>
+            </ul>
+            <p class="course-desc">1つの願望に集中して調整を行うプランです。潜在意識・魂・情報フィールドに願望をしっかり刻み込みます。</p>
+            <div class="sub-plan-box">
+              <p class="sub-plan-title">サブスクプラン</p>
+              <div class="sub-plan-grid">
+                <div class="sub-plan-item">
+                  <strong>Aプラン（掛けっぱなし）</strong>
+                  3ヶ月 5,000円<br>
+                  6ヶ月 10,000円
+                </div>
+                <div class="sub-plan-item">
+                  <strong>Bプラン（毎月報告付き）</strong>
+                  3ヶ月 8,000円<br>
+                  6ヶ月 15,000円
+                </div>
+              </div>
+              <p class="sub-plan-note">Aプラン：願望変更不可。Bプラン：毎月変更可。途中解約・返金は不可です。</p>
+            </div>
+          </div>
+
+          <!-- スタンダードプラン -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">波動調整コース<br>スタンダードプラン</p>
+              <div class="course-price-block">
+                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>願望2つ、オーラ調整</li>
+              <li>調整期間：1ヶ月</li>
+              <li>願望追加：1つにつき2,000円</li>
+            </ul>
+            <p class="course-desc">2つの願望を並行して調整するプランです。あれもこれもと悩みや目標が多い方に向いています。</p>
+            <div class="sub-plan-box">
+              <p class="sub-plan-title">サブスクプラン</p>
+              <div class="sub-plan-grid">
+                <div class="sub-plan-item">
+                  <strong>Aプラン（掛けっぱなし）</strong>
+                  3ヶ月 9,000円<br>
+                  6ヶ月 17,000円
+                </div>
+                <div class="sub-plan-item">
+                  <strong>Bプラン（毎月報告付き）</strong>
+                  3ヶ月 14,000円<br>
+                  6ヶ月 27,000円
+                </div>
+              </div>
+              <p class="sub-plan-note">Aプラン：願望変更不可。Bプラン：毎月変更可。途中解約・返金は不可です。</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 専門コース -->
+      <div class="course-group">
+        <p class="course-group-label">SPECIALTY — 専門コース</p>
+        <div class="course-grid">
+
+          <!-- 未来分析 -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">タイムウェーバー<br>未来分析コース</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>願望1つ、リスト＋タイムライン分析</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">リストで阻害エネルギーの強弱を分析し、タイムラインで願望がいつ達成されるかを読みます。「いつ頃叶うのか知りたい」という方に。</p>
+          </div>
+
+          <!-- お金エネルギー -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">お金エネルギー<br>最適化コース</p>
+              <div class="course-price-block">
+                <span class="course-price">8,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 5,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>エナジーポイント分析・調整</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">自己価値・金銭を生む能力・感情・信念など、お金に関わる11のエネルギーバランスを整えます。お金の流れが詰まっていると感じる方に。</p>
+          </div>
+
+          <!-- 家・建物 -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">家・建物の<br>エネルギー最適化コース</p>
+              <div class="course-price-block">
+                <span class="course-price">8,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 5,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>間取りゾーニング＋エネルギー分析</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">家の間取りを各部屋ごとにゾーニングし、エネルギーバランスを分析・調整します。住環境のエネルギーが整うと、願望の実現に良い影響が出ます。</p>
+          </div>
+
+          <!-- 先祖エネルギー -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">先祖エネルギー<br>最適化コース</p>
+              <div class="course-price-block">
+                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 3,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>人間関係エネルギー分析・調整</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">両親・先祖・兄弟・知人など、自分を中心とした人間関係のエネルギーを整えます。繰り返すパターンやカルマのブロックが気になる方に。</p>
+          </div>
+
+          <!-- サウンドセラピー -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">サウンドセラピー</p>
+              <div class="course-price-block">
+                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 3,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>情報フィールド最適化用音源</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">タイムウェーバーが情報フィールドを分析し、肉体レベルで必要な周波数をベースにした音源を作成します。音源ファイルをお届けします。</p>
+          </div>
+
+          <!-- ゲノウェーブ -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">ゲノウェーブ</p>
+              <div class="course-price-block">
+                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 3,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>写真を使ったエネルギー調整</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">特定の人・動物・物・概念との関係性を分析・調整します。自分が対象に対して発しているエネルギーと、受け取っているエネルギーを数値化して可視化します。</p>
+          </div>
+
+          <!-- ハイヤーセルフ -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">ハイヤーセルフと<br>繋がるコース</p>
+              <div class="course-price-block">
+                <span class="course-price">9,800<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 8,800円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>53,559個のDBから180種類以上を調整</li>
+              <li>4時間に1回の調整（1日5回以上）</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">「私はハイヤーセルフに従って自分らしく自由に自分を愛して楽しく生きる」というフォーカステキストで、集中的に調整を行います。通常より高頻度（1日5回以上）の調整で、より深い気づきと意識の成長をサポートします。</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Zoomセッション ===== -->
+    <div id="zoom" style="margin-top: 56px;">
+      <div class="zoom-section-wrap">
+        <p class="section-label">Zoom Session</p>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,24px); font-weight:300; letter-spacing:0.08em; margin-bottom: 12px;">Zoom セッション</h2>
+        <p style="font-size:13px; color: var(--text-mid); margin-bottom: 36px; line-height:1.9;">Zoomを使ったオンライン対面セッションです。分析・調整の結果はセッション後3〜7日以内にLINE等でご報告します。</p>
+
+      <div class="zoom-grid">
+
+        <div class="zoom-card">
+          <p class="zoom-time">20 MIN</p>
+          <p class="zoom-name">お試しコース</p>
+          <p class="zoom-price">6,000<span class="zoom-price-unit">円</span></p>
+          <div class="course-divider"></div>
+          <ul class="course-meta">
+            <li>オーラ調整</li>
+            <li>願望1つ（簡易分析・調整）</li>
+          </ul>
+          <p class="course-desc">Zoomセッションを気軽に体験したい方向けの入門コースです。</p>
+        </div>
+
+        <div class="zoom-card">
+          <p class="zoom-time">50 MIN</p>
+          <p class="zoom-name">スタンダードコース</p>
+          <p class="zoom-price">13,000<span class="zoom-price-unit">円</span></p>
+          <div class="course-divider"></div>
+          <ul class="course-meta">
+            <li>オーラ調整</li>
+            <li>願望2つの分析・調整</li>
+            <li>または願望1つを多角的に深掘り</li>
+          </ul>
+          <p class="course-desc">1つの願望をじっくり掘り下げるか、2つの願望を広く浅く見るか、当日の状況に応じて対応します。</p>
+        </div>
+
+        <div class="zoom-card">
+          <p class="zoom-time">80 MIN</p>
+          <p class="zoom-name">プレミアムコース</p>
+          <p class="zoom-price">19,000<span class="zoom-price-unit">円</span></p>
+          <div class="course-divider"></div>
+          <ul class="course-meta">
+            <li>オーラ調整</li>
+            <li>願望1テーマを多角的に深掘り</li>
+            <li>または願望2〜3つを分析・調整</li>
+          </ul>
+          <p class="course-desc">最も充実した内容です。1テーマを徹底的に掘り下げたい方、複数の悩みをまとめて見たい方に。</p>
+        </div>
+
+      </div>
+
+      <div class="zoom-note">
+        <p><strong style="font-size:11px; letter-spacing:0.1em;">Zoomセッション受講にあたって</strong></p>
+        <p>安定したインターネット接続をご用意ください。Zoomアプリは最新バージョンをインストールしておいてください。セッション開始5分前にはログインし、マイクとカメラの確認をお願いします。静かな環境でご参加ください。</p>
+        <p>事前に願望・目標・お悩みをご連絡いただければ、セッション内容をご提案します。お気軽にご相談ください。</p>
+      </div>
+      </div><!-- /.zoom-section-wrap -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================
+     ヒーリーセクション（準備中）
+     ================================ -->
+<section id="healy" style="padding: 80px 0; background: var(--bg-alt); border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-heading-img">
+      <img src="assets/images/healy.png" alt="ヒーリー">
+      <div class="heading-text">
+        <p class="section-label">Healy</p>
+        <h2>ヒーリーセッション</h2>
+      </div>
+    </div>
+    <div class="healy-placeholder">
+      <h3>準備中</h3>
+      <p>ヒーリーのセッションメニューは近日公開予定です。<br>詳細はLINEよりお問い合わせください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================
+     お申込み・決済
+     ================================ -->
+<section class="apply-section">
+  <div class="container">
+    <p class="section-label">How to Apply</p>
+    <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,24px); font-weight:300; letter-spacing:0.08em; margin-bottom: 40px;">お申込み・決済方法</h2>
+
+    <div class="apply-grid">
+      <div class="apply-card">
+        <h3>お申込み方法</h3>
+        <ul class="apply-list">
+          <li>
+            <strong>LINEからのお申込み（おすすめ）</strong>
+            <a href="line.html">公式LINE</a>に登録後、「セッション希望」とメッセージをお送りください。ご希望のコースや日程を確認してご案内します。
+          </li>
+          <li>
+            <strong>メールからのお申込み</strong>
+            お問い合わせフォームよりご連絡ください。迷惑メールフォルダへの振り分けにご注意ください。キャリアメールの場合はドメイン指定（@i-am-happy-with-my-life.com）の設定をお願いします。
+          </li>
+        </ul>
+      </div>
+
+      <div class="apply-card">
+        <h3>決済方法</h3>
+        <ul class="apply-list">
+          <li>
+            <strong>銀行振込</strong>
+            ご指定の銀行口座へのお振込みとなります。口座情報はお申込み後にご案内します。
+          </li>
+          <li>
+            <strong>クレジットカード</strong>
+            Visa / Mastercard / American Express / JCB / Diners Club / Discover がご利用いただけます。Stripeによる安全な決済システムを導入しています。
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="apply-notice">
+      写真をお送りいただく場合は、容量にご注意の上お送りください。メール経由でのお写真送付は容量の関係でうまく届かない場合があります。
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">タイムウェーバー8</a>
+    <nav class="footer-nav">
+      <a href="about.html">タイムウェーバーとは</a>
+      <a href="healy.html">ヒーリーとは</a>
+      <a href="session.html">セッション</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="profile.html">プロフィール</a>
+      <a href="blog/">ブログ</a>
+      <a href="qa.html">よくある質問</a>
+      <a href="power.html">パワースポット</a>
+      <a href="seminar.html">セミナールーム</a>
+    </nav>
+    <div class="footer-sns">
+      <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.56 0H2.44A2.44 2.44 0 0 0 0 2.44v19.12A2.44 2.44 0 0 0 2.44 24h19.12A2.44 2.44 0 0 0 24 21.56V2.44A2.44 2.44 0 0 0 21.56 0zm-4.1 16.12a.63.63 0 0 1-.62.52h-1.26a.63.63 0 0 1-.62-.52l-.42-2.62H9.46l-.42 2.62a.63.63 0 0 1-.62.52H7.16a.63.63 0 0 1-.62-.72l2-10.74a.63.63 0 0 1 .62-.52h5.68a.63.63 0 0 1 .62.52l2 10.74a.6.6 0 0 1 0 .2zm-5.5-8.74-.9 4.74h1.88l-.98-4.74z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.13-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.55A3.02 3.02 0 0 0 .5 6.19 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.13 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.37-.55a3.02 3.02 0 0 0 2.13-2.14A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      </a>
+      <a href="line.html" aria-label="LINE公式">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 4.86.5 10.24c0 4.75 4.22 8.72 9.93 9.6.39.08.91.26 1.05.59.12.3.08.78.04 1.08l-.17 1.01c-.05.3-.24 1.18 1.03.64s6.86-4.04 9.36-6.91A8.54 8.54 0 0 0 23.5 10.24C23.5 4.86 18.35.5 12 .5zM7.64 13.15H5.57a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 1.14 0v3.05h1.5a.57.57 0 0 1 0 1.14zm2.06-.57a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 1.14 0zm4.69 0a.57.57 0 0 1-.57.57h-.03a.57.57 0 0 1-.46-.23l-1.96-2.67v2.33a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 .57-.57h.04c.18 0 .35.09.46.23l1.96 2.67V8.96a.57.57 0 0 1 1.14 0v3.62zm3.07-2.33a.57.57 0 0 1 0 1.14h-1.5v.62h1.5a.57.57 0 0 1 0 1.14H15.4a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 .57-.57h2.06a.57.57 0 0 1 0 1.14h-1.5v.72z"/></svg>
+      </a>
+    </div>
+    <div class="footer-legal">
+      <a href="pp.html">プライバシーポリシー</a>
+      <a href="terms.html">特定商取引法に基づく表記</a>
+    </div>
+    <p class="copyright">&copy; タイムウェーバー8 今田</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="ページトップへ戻る">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // セッション種別ナビのアクティブ状態
+  (function () {
+    const navLinks = document.querySelectorAll('.session-type-nav a');
+
+    function updateActive() {
+      const tw = document.getElementById('timewaver');
+      const healy = document.getElementById('healy');
+      if (!tw || !healy) return;
+      const scrollY = window.scrollY + 120;
+      if (scrollY >= healy.offsetTop) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        navLinks[1] && navLinks[1].classList.add('active');
+      } else {
+        navLinks.forEach(a => a.classList.remove('active'));
+        navLinks[0] && navLinks[0].classList.add('active');
+      }
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  })();
+</script>
+</body>
+</html>
