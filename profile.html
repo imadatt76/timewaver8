@@ -4,29 +4,414 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>プロフィール | タイムウェーバー8</title>
-  <meta name="description" content="">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta name="description" content="タイムウェーバー8を運営するいまだともたかのプロフィール。ハウスクリーニング・タイムウェーバー・ヒーリーを軸に、整えながら進む人のサポートをしています。">
+  <meta name="page-summary" content="プロフィールページを読んできました。この人がどんな考えで活動しているか気になっています。整えることへの向き合い方や、セッションでどう関わってもらえるのかを教えてもらえますか？">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* プロフィールカード */
+    .prof-card {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+    .prof-photo {
+      flex-shrink: 0;
+      width: 200px;
+    }
+    .prof-photo img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+    .prof-info {
+      flex: 1;
+    }
+    .prof-name {
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-family: 'Noto Serif JP', serif;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .prof-name-sub {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      margin: 0 0 20px;
+      letter-spacing: 0.05em;
+    }
+    .prof-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .prof-tag {
+      font-size: 0.78rem;
+      padding: 4px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(160,120,64,0.35);
+      color: #a07840;
+    }
+    .prof-location {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+    }
+
+    /* 3事業 */
+    .activity-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .activity-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 24px;
+      background: var(--bg-alt);
+      border-radius: 10px;
+    }
+    .activity-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(160,120,64,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .activity-body h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+    .activity-body p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    /* スタンス */
+    .stance-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .stance-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .stance-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #a07840;
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+    .stance-item p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    /* 合う・合わない */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .fit-card {
+      padding: 24px;
+      border-radius: 10px;
+      background: var(--bg-alt);
+    }
+    .fit-card h3 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 0 0 14px;
+      color: var(--text-mid);
+      letter-spacing: 0.05em;
+    }
+    .fit-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .fit-card ul li {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      padding-left: 14px;
+      position: relative;
+    }
+    .fit-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #a07840;
+    }
+    .fit-card--no ul li::before {
+      background: rgba(160,120,64,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .prof-card {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .prof-photo {
+        width: 140px;
+      }
+      .fit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
+<!-- ヘッダー -->
 <header id="site-header">
-  <div class="container">
-    <!-- ナビゲーション -->
+  <div class="container header-inner">
+    <a href="index.html" class="logo">タイムウェーバー<span>8</span></a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">タイムウェーバーとは</a></li>
+        <li><a href="healy.html">ヒーリーとは</a></li>
+        <li><a href="session.html">セッション</a></li>
+        <li><a href="voice.html">お客様の声</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="blog/">ブログ</a></li>
+        <li><a href="qa.html">よくある質問</a></li>
+        <li class="nav-sep">
+          <div class="nav-cta-group">
+            <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="nav-cta nav-cta--gpt">ChatGPTに相談</a>
+            <a href="line.html" class="nav-cta nav-cta--line">LINE登録</a>
+          </div>
+          <div class="nav-sns-text">
+            <span class="nav-sns-label">SNS</span>
+            <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener">note</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-page-summary" id="btn-page-summary">要約をコピー</button>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-header-gpt">ChatGPT</a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main>
-  <div class="container">
-    <!-- プロフィールコンテンツ -->
+<!-- ページヒーロー -->
+<section class="page-hero page-hero--tw">
+  <div class="hero-tw-circles" aria-hidden="true">
+    <span></span><span></span><span></span>
   </div>
-</main>
+  <div class="container" style="position:relative; z-index:1;">
+    <h1>プロフィール</h1>
+    <p class="page-hero-desc">整えながら進む人の、整理役です。</p>
+  </div>
+</section>
 
-<footer id="site-footer">
+<!-- プロフィールカード -->
+<section class="section fade-in">
   <div class="container">
-    <p>&copy; タイムウェーバー8 今田</p>
+    <div class="prof-card">
+      <div class="prof-photo">
+        <img src="assets/images/img22.jpg" alt="いまだともたか">
+      </div>
+      <div class="prof-info">
+        <h2 class="prof-name">いまだ ともたか</h2>
+        <p class="prof-name-sub">Imaida Tomotaka</p>
+        <div class="prof-tags">
+          <span class="prof-tag">ハウスクリーニング</span>
+          <span class="prof-tag">タイムウェーバーオペレーター</span>
+          <span class="prof-tag">ヒーリーオペレーター</span>
+        </div>
+        <p class="prof-location">京都府八幡市 在住 / オンライン対応</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 何をしている人か -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Activities</p>
+    <h2>3つの仕事、<br>共通するのは「整える」こと</h2>
+    <p>一見バラバラに見えますが、整える対象の次元が違うだけです。</p>
+    <div class="activity-grid">
+      <div class="activity-item">
+        <div class="activity-icon">◎</div>
+        <div class="activity-body">
+          <h3>情報を整える｜タイムウェーバーオペレーター</h3>
+          <p>情報フィールド・意識・深層を整える。潜在意識やカルマのパターンにもアクセスします（<a href="https://yururimura.com/" target="_blank" rel="noopener">ゆるり村TW研究所会員</a>）。</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">〇</div>
+        <div class="activity-body">
+          <h3>心身とエネルギーを整える｜ヒーリーオペレーター</h3>
+          <p>体・心・エネルギーを整える。周波数デバイスを使い、日常の細かい調整を継続的にサポートします。</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">🏠</div>
+        <div class="activity-body">
+          <h3>空間を整える｜ハウスクリーニング（Think rich）</h3>
+          <p>空間・環境を整える。生活の場が整うことで、日常のリズムとエネルギーの流れが変わります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- なぜやっているか -->
+<section class="section fade-in">
+  <div class="container section-inner">
+    <div class="section-circle-deco"></div>
+    <div class="section-body">
+      <p class="section-label">Background</p>
+      <h2>整えている先生ではなく、<br>整えながら進んでいる人です</h2>
+      <p>完成された誰かとしてではなく、自分自身も整えながら進んでいる一人として関わっています。<br><br>タイムウェーバーで自分の状態を見て、ヒーリーで日々を微調整し、ハウスクリーニングで現実の足場を整える。その繰り返しの中で見えてきたことを、必要な方に渡しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 大切にしていること -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Stance</p>
+    <h2>セッションで大切にしていること</h2>
+    <div class="stance-list">
+      <div class="stance-item">
+        <div class="stance-dot"></div>
+        <p><strong>答えを出すより、整理することを重視します。</strong>何が問題かより、今どこが詰まっているかを一緒に見ていきます。</p>
+      </div>
+      <div class="stance-item">
+        <div class="stance-dot"></div>
+        <p><strong>判断するのはあなたです。</strong>「こうすべき」を押しつけることはしません。情報を整えて、あとはお任せします。</p>
+      </div>
+      <div class="stance-item">
+        <div class="stance-dot"></div>
+        <p><strong>依存を作りません。</strong>継続を前提にしません。必要なときに使ってもらえれば、それで十分です。</p>
+      </div>
+      <div class="stance-item">
+        <div class="stance-dot"></div>
+        <p><strong>スピリチュアルを現実逃避に使いません。</strong>整えることは、現実を動かすための手段だと考えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 合う・合わない -->
+<section class="section fade-in">
+  <div class="container">
+    <p class="section-label">For Who</p>
+    <h2>こんな方と<br>関わりたいと思っています</h2>
+    <div class="fit-grid">
+      <div class="fit-card">
+        <h3>こんな方に向いています</h3>
+        <ul>
+          <li>整えることに興味がある、試してみたい</li>
+          <li>売り込まれたくない、自分で判断したい</li>
+          <li>「ちょっと聞いてみたい」程度でも構わない</li>
+          <li>現実的な視点も持ちながら整えたい</li>
+        </ul>
+      </div>
+      <div class="fit-card fit-card--no">
+        <h3>こんな方には向いていません</h3>
+        <ul>
+          <li>変化を保証してほしい方</li>
+          <li>明確な答えを外から与えてほしい方</li>
+          <li>受け身のまま全部を変えてもらいたい方</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 最後の一言 -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <div style="max-width: 600px;">
+      <p class="section-label">Note</p>
+      <h2>今も実験中です</h2>
+      <p>生成AIとタイムウェーバーの組み合わせ、ヒーリーの使い方、整えと現実の関係。まだ試している途中のことがたくさんあります。<br><br>整えの答えを持っている人ではなく、整えながら考えている人として関わります。そこが合う方と、ゆっくり関われたらと思っています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA -->
+<section class="section-cta fade-in">
+  <div class="container">
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Contact</p>
+    <h2>まずはLINEで<br>ご相談ください</h2>
+    <p>お問い合わせ・セッションのご相談はLINEのみで受け付けています。<br>メールでのお問い合わせは行っておりません。</p>
+    <div class="cta-btn-group">
+      <a href="line.html" class="btn-primary btn-line">LINE で相談する</a>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-secondary">まず ChatGPT に聞いてみる</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">タイムウェーバー8</a>
+    <nav class="footer-nav">
+      <a href="about.html">タイムウェーバーとは</a>
+      <a href="healy.html">ヒーリーとは</a>
+      <a href="session.html">セッション</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="profile.html">プロフィール</a>
+      <a href="blog/">ブログ</a>
+      <a href="qa.html">よくある質問</a>
+      <a href="power.html">パワースポット</a>
+      
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
+      <nav class="footer-legal">
+        <a href="pp.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+        <a href="tokusho.html">特定商取引法に基づく表記</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

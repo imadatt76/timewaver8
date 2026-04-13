@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パワースポット | タイムウェーバー8</title>
+  <meta name="description" content="このサイト全体がパワースポットです。訪れた方に1日1回、タイムウェーバーで波動調整しています。量子・共鳴・周波数。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="page-summary" content="タイムウェーバー8のパワースポットページを読んできました。以下を理解しています。
+
+・このサイト全体がパワースポットとして定義されている
+・訪れた方に1日1回、タイムウェーバーで波動調整を行っている
+・量子・共鳴・周波数がタイムウェーバーの根底にあるテーマ
+・タイムウェーバーの情報フィールドはオンラインでも機能する
+
+セッションの内容やタイムウェーバーについて一緒に考えてもらえますか？">
+  <style>
+
+    /* ============================================
+       ダーク背景ヒーロー
+    ============================================ */
+    .power-hero {
+      background: #05050d;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 24px 80px;
+    }
+
+    /* 中心からの放射グロー */
+    .power-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%,
+        rgba(160,120,64,0.1) 0%,
+        rgba(160,120,64,0.04) 40%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    /* ============================================
+       曼荼羅ステージ
+    ============================================ */
+    .mandala-stage {
+      position: relative;
+      width: 450px;
+      height: 450px;
+      flex-shrink: 0;
+    }
+
+    /* 全レイヤー共通：中心に絶対配置 */
+    .m-layer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: spin-cw var(--dur, 20s) linear infinite;
+    }
+
+    @keyframes spin-cw {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* ============================================
+       中心コア
+    ============================================ */
+    .m-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin: -5px 0 0 -5px;
+      border-radius: 50%;
+      background: #c8964e;
+      z-index: 10;
+      animation: core-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes core-pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 8px 2px rgba(200,150,78,0.9),
+          0 0 30px 8px rgba(160,120,64,0.45),
+          0 0 80px 25px rgba(160,120,64,0.18);
+      }
+      50% {
+        box-shadow:
+          0 0 14px 4px rgba(200,150,78,1),
+          0 0 55px 16px rgba(160,120,64,0.65),
+          0 0 140px 50px rgba(160,120,64,0.28);
+      }
+    }
+
+    /* ============================================
+       蓮の花弁（8枚）
+    ============================================ */
+    .m-petals {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      --dur: 90s;
+      animation: spin-cw var(--dur) linear infinite;
+    }
+
+    .m-petal {
+      position: absolute;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(160,120,64,0.28);
+      margin: -26px 0 0 -26px;
+    }
+
+    /* 8枚の花弁：中心から半径42pxの位置に配置 */
+    .m-petal:nth-child(1) { transform: translate(  0px, -42px); }
+    .m-petal:nth-child(2) { transform: translate( 30px, -30px); }
+    .m-petal:nth-child(3) { transform: translate( 42px,   0px); }
+    .m-petal:nth-child(4) { transform: translate( 30px,  30px); }
+    .m-petal:nth-child(5) { transform: translate(  0px,  42px); }
+    .m-petal:nth-child(6) { transform: translate(-30px,  30px); }
+    .m-petal:nth-child(7) { transform: translate(-42px,   0px); }
+    .m-petal:nth-child(8) { transform: translate(-30px, -30px); }
+
+    /* ============================================
+       リング群
+    ============================================ */
+
+    /* Ring 1: 110px / 8ドット / 8s */
+    .m-r1 {
+      --dur: 8s;
+      width: 110px;
+      height: 110px;
+      border: 1px solid rgba(160,120,64,0.5);
+    }
+
+    /* Ring 2: 190px / ダッシュ / 20s */
+    .m-r2 {
+      --dur: 20s;
+      width: 190px;
+      height: 190px;
+      border: 1px dashed rgba(160,120,64,0.22);
+    }
+
+    /* Ring 3: 270px / 8ドット / 35s */
+    .m-r3 {
+      --dur: 35s;
+      width: 270px;
+      height: 270px;
+      border: 1px solid rgba(160,120,64,0.3);
+    }
+
+    /* Ring 4: 370px / ダッシュ / 52s */
+    .m-r4 {
+      --dur: 52s;
+      width: 370px;
+      height: 370px;
+      border: 1px dashed rgba(160,120,64,0.15);
+    }
+
+    /* Ring 5: 450px / 極薄 / 70s */
+    .m-r5 {
+      --dur: 70s;
+      width: 450px;
+      height: 450px;
+      border: 1px solid rgba(160,120,64,0.1);
+    }
+
+    /* ============================================
+       ドット（8方位）
+    ============================================ */
+    .m-dot {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(160,120,64,0.75);
+      top: 50%;
+      left: 50%;
+    }
+
+    /* Ring1 ドット (r=55px) */
+    .m-r1 .m-dot { width: 4px; height: 4px; margin: -2px 0 0 -2px; }
+    .m-r1 .m-dot:nth-child(1) { transform: rotate(  0deg) translateY(-55px); }
+    .m-r1 .m-dot:nth-child(2) { transform: rotate( 45deg) translateY(-55px); }
+    .m-r1 .m-dot:nth-child(3) { transform: rotate( 90deg) translateY(-55px); }
+    .m-r1 .m-dot:nth-child(4) { transform: rotate(135deg) translateY(-55px); }
+    .m-r1 .m-dot:nth-child(5) { transform: rotate(180deg) translateY(-55px); }
+    .m-r1 .m-dot:nth-child(6) { transform: rotate(225deg) translateY(-55px); }
+    .m-r1 .m-dot:nth-child(7) { transform: rotate(270deg) translateY(-55px); }
+    .m-r1 .m-dot:nth-child(8) { transform: rotate(315deg) translateY(-55px); }
+
+    /* Ring3 ドット (r=135px) */
+    .m-r3 .m-dot { width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; }
+    .m-r3 .m-dot:nth-child(1) { transform: rotate(  0deg) translateY(-135px); }
+    .m-r3 .m-dot:nth-child(2) { transform: rotate( 45deg) translateY(-135px); }
+    .m-r3 .m-dot:nth-child(3) { transform: rotate( 90deg) translateY(-135px); }
+    .m-r3 .m-dot:nth-child(4) { transform: rotate(135deg) translateY(-135px); }
+    .m-r3 .m-dot:nth-child(5) { transform: rotate(180deg) translateY(-135px); }
+    .m-r3 .m-dot:nth-child(6) { transform: rotate(225deg) translateY(-135px); }
+    .m-r3 .m-dot:nth-child(7) { transform: rotate(270deg) translateY(-135px); }
+    .m-r3 .m-dot:nth-child(8) { transform: rotate(315deg) translateY(-135px); }
+
+    /* Ring5 ドット (r=225px) ダイヤ型 */
+    .m-r5 .m-dot {
+      width: 6px;
+      height: 6px;
+      margin: -3px 0 0 -3px;
+      border-radius: 1px;
+      transform-origin: center;
+      background: rgba(160,120,64,0.45);
+    }
+    .m-r5 .m-dot:nth-child(1) { transform: rotate(  0deg) translateY(-225px) rotate(45deg); }
+    .m-r5 .m-dot:nth-child(2) { transform: rotate( 45deg) translateY(-225px) rotate(45deg); }
+    .m-r5 .m-dot:nth-child(3) { transform: rotate( 90deg) translateY(-225px) rotate(45deg); }
+    .m-r5 .m-dot:nth-child(4) { transform: rotate(135deg) translateY(-225px) rotate(45deg); }
+    .m-r5 .m-dot:nth-child(5) { transform: rotate(180deg) translateY(-225px) rotate(45deg); }
+    .m-r5 .m-dot:nth-child(6) { transform: rotate(225deg) translateY(-225px) rotate(45deg); }
+    .m-r5 .m-dot:nth-child(7) { transform: rotate(270deg) translateY(-225px) rotate(45deg); }
+    .m-r5 .m-dot:nth-child(8) { transform: rotate(315deg) translateY(-225px) rotate(45deg); }
+
+    /* ============================================
+       エネルギー帯（時計回りの尾）
+    ============================================ */
+    .m-sweep {
+      border-radius: 50%;
+    }
+
+    /* 内側のエネルギー帯 (160px) */
+    .m-sweep-1 {
+      --dur: 5s;
+      width: 160px;
+      height: 160px;
+      background: conic-gradient(
+        from 0deg,
+        transparent        0%,
+        transparent       55%,
+        rgba(160,120,64,0.12) 72%,
+        rgba(160,120,64,0.38) 88%,
+        rgba(200,150,78,0.55) 96%,
+        transparent       100%
+      );
+    }
+
+    /* 外側のエネルギー帯 (310px) */
+    .m-sweep-2 {
+      --dur: 9s;
+      width: 310px;
+      height: 310px;
+      background: conic-gradient(
+        from 0deg,
+        transparent        0%,
+        transparent       55%,
+        rgba(160,120,64,0.08) 72%,
+        rgba(160,120,64,0.25) 88%,
+        rgba(200,150,78,0.38) 96%,
+        transparent       100%
+      );
+    }
+
+    /* ============================================
+       スポーク（放射線・8本）
+    ============================================ */
+    .m-spokes {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 450px;
+      height: 450px;
+      margin: -225px 0 0 -225px;
+      animation: spin-cw 120s linear infinite;
+    }
+
+    .m-spoke {
+      position: absolute;
+      width: 1px;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -0.5px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(160,120,64,0.06) 20%,
+        rgba(160,120,64,0.1) 50%,
+        rgba(160,120,64,0.06) 80%,
+        transparent 100%
+      );
+      transform-origin: center;
+    }
+
+    .m-spoke:nth-child(1) { transform: rotate(  0deg); }
+    .m-spoke:nth-child(2) { transform: rotate( 22.5deg); }
+    .m-spoke:nth-child(3) { transform: rotate( 45deg); }
+    .m-spoke:nth-child(4) { transform: rotate( 67.5deg); }
+    .m-spoke:nth-child(5) { transform: rotate( 90deg); }
+    .m-spoke:nth-child(6) { transform: rotate(112.5deg); }
+    .m-spoke:nth-child(7) { transform: rotate(135deg); }
+    .m-spoke:nth-child(8) { transform: rotate(157.5deg); }
+
+    /* ============================================
+       テキスト（ダーク内）
+    ============================================ */
+    .power-text {
+      text-align: center;
+      margin-top: 56px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .power-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      color: rgba(160,120,64,0.7);
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+
+    .power-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.15rem, 3.5vw, 1.7rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 20px;
+      line-height: 1.85;
+    }
+
+    .power-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 2;
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================================
+       説明セクション（ライト）
+    ============================================ */
+    .power-desc-section {
+      background: var(--bg);
+    }
+
+    .power-desc-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .power-desc-inner p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.95;
+      margin: 0;
+    }
+
+    .power-desc-inner p + p {
+      margin-top: 20px;
+    }
+
+    .power-keywords {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .power-keyword {
+      font-size: 0.78rem;
+      padding: 5px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(160,120,64,0.35);
+      color: #a07840;
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================================
+       波紋
+    ============================================ */
+    .ripples {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(160,120,64,0.22);
+      animation: ripple-out var(--dur, 6s) ease-out var(--delay, 0s) infinite backwards;
+    }
+
+    @keyframes ripple-out {
+      0%   { transform: translate(-50%, -50%) scale(0.05); opacity: 0; }
+      8%   { opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1);    opacity: 0; }
+    }
+
+    /* 各波紋：位置・サイズ・タイミングをバラバラに */
+    .ripple:nth-child(1)  { --dur:5.2s; --delay:0s;   width:260px; height:260px; top:22%; left:14%; }
+    .ripple:nth-child(2)  { --dur:7.8s; --delay:1.4s; width:400px; height:400px; top:70%; left:78%; border-color:rgba(160,120,64,0.12); }
+    .ripple:nth-child(3)  { --dur:4.5s; --delay:3.1s; width:180px; height:180px; top:55%; left:18%; }
+    .ripple:nth-child(4)  { --dur:6.3s; --delay:0.7s; width:320px; height:320px; top:28%; left:82%; border-color:rgba(160,120,64,0.16); }
+    .ripple:nth-child(5)  { --dur:8.5s; --delay:4.6s; width:460px; height:460px; top:82%; left:42%; border-color:rgba(160,120,64,0.10); }
+    .ripple:nth-child(6)  { --dur:5.8s; --delay:2.2s; width:210px; height:210px; top:15%; left:62%; }
+    .ripple:nth-child(7)  { --dur:6.9s; --delay:5.5s; width:350px; height:350px; top:48%; left:88%; border-color:rgba(160,120,64,0.14); }
+    .ripple:nth-child(8)  { --dur:4.2s; --delay:1.0s; width:150px; height:150px; top:75%; left:22%; }
+    .ripple:nth-child(9)  { --dur:7.2s; --delay:3.8s; width:290px; height:290px; top:35%; left:48%; border-color:rgba(160,120,64,0.13); }
+    .ripple:nth-child(10) { --dur:5.5s; --delay:6.2s; width:230px; height:230px; top:62%; left:60%; }
+
+    /* ============================================
+       モバイル対応
+    ============================================ */
+    @media (max-width: 500px) {
+      .mandala-stage {
+        transform: scale(0.68);
+        margin: -72px 0;
+      }
+      .power-text {
+        margin-top: 32px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">タイムウェーバー<span>8</span></a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">タイムウェーバーとは</a></li>
+        <li><a href="healy.html">ヒーリーとは</a></li>
+        <li><a href="session.html">セッション</a></li>
+        <li><a href="voice.html">お客様の声</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="blog/">ブログ</a></li>
+        <li><a href="qa.html">よくある質問</a></li>
+        <li class="nav-sep">
+          <div class="nav-cta-group">
+            <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="nav-cta nav-cta--gpt">ChatGPTに相談</a>
+            <a href="line.html" class="nav-cta nav-cta--line">LINE登録</a>
+          </div>
+          <div class="nav-sns-text">
+            <span class="nav-sns-label">SNS</span>
+            <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener">note</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-page-summary" id="btn-page-summary">要約をコピー</button>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-header-gpt">ChatGPT</a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ダーク曼荼羅ヒーロー -->
+<section class="power-hero">
+
+  <!-- 波紋 -->
+  <div class="ripples" aria-hidden="true">
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+  </div>
+
+  <!-- 曼荼羅 -->
+  <div class="mandala-stage">
+
+    <!-- スポーク（放射線） -->
+    <div class="m-spokes">
+      <div class="m-spoke"></div>
+      <div class="m-spoke"></div>
+      <div class="m-spoke"></div>
+      <div class="m-spoke"></div>
+      <div class="m-spoke"></div>
+      <div class="m-spoke"></div>
+      <div class="m-spoke"></div>
+      <div class="m-spoke"></div>
+    </div>
+
+    <!-- Ring 5（最外） -->
+    <div class="m-layer m-r5">
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+    </div>
+
+    <!-- エネルギー帯・外 -->
+    <div class="m-layer m-sweep m-sweep-2"></div>
+
+    <!-- Ring 4 -->
+    <div class="m-layer m-r4"></div>
+
+    <!-- Ring 3（ドット付き） -->
+    <div class="m-layer m-r3">
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+    </div>
+
+    <!-- エネルギー帯・内 -->
+    <div class="m-layer m-sweep m-sweep-1"></div>
+
+    <!-- Ring 2 -->
+    <div class="m-layer m-r2"></div>
+
+    <!-- Ring 1（ドット付き） -->
+    <div class="m-layer m-r1">
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+      <div class="m-dot"></div>
+    </div>
+
+    <!-- 蓮の花弁 -->
+    <div class="m-petals">
+      <div class="m-petal"></div>
+      <div class="m-petal"></div>
+      <div class="m-petal"></div>
+      <div class="m-petal"></div>
+      <div class="m-petal"></div>
+      <div class="m-petal"></div>
+      <div class="m-petal"></div>
+      <div class="m-petal"></div>
+    </div>
+
+    <!-- 中心コア -->
+    <div class="m-core"></div>
+
+  </div>
+  <!-- /mandala-stage -->
+
+  <!-- テキスト -->
+  <div class="power-text">
+    <p class="power-label">Power Spot</p>
+    <h1 class="power-heading">
+      このサイト全体が、<br>パワースポットです。
+    </h1>
+    <p class="power-sub">
+      量子 &nbsp;／&nbsp; 共鳴 &nbsp;／&nbsp; 周波数
+    </p>
+  </div>
+
+</section>
+
+<!-- 説明テキスト -->
+<section class="section power-desc-section fade-in">
+  <div class="container">
+    <div class="power-desc-inner">
+      <p class="section-label" style="text-align:center; margin-bottom: 24px;">Wave Adjustment</p>
+      <p>このサイトを訪れた方に、1日1回タイムウェーバーで波動調整を行っています。</p>
+      <p>タイムウェーバーの情報フィールドは、オンライン上でも機能します。ここを訪れることが、整えのはじまりです。特別な操作は必要ありません。ただ、来るだけでいい。</p>
+      <div class="power-keywords">
+        <span class="power-keyword">量子共鳴</span>
+        <span class="power-keyword">情報フィールド</span>
+        <span class="power-keyword">周波数調整</span>
+        <span class="power-keyword">遠隔作用</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta fade-in">
+  <div class="container">
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Session</p>
+    <h2>もっと深く整えたい方へ</h2>
+    <p>個別セッションでは、あなたの情報フィールドに直接アクセスします。<br>まずはLINEでご相談ください。</p>
+    <div class="cta-btn-group">
+      <a href="line.html" class="btn-primary btn-line">LINE で相談する</a>
+      <a href="session.html" class="btn-secondary">セッションメニューを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">タイムウェーバー8</a>
+    <nav class="footer-nav">
+      <a href="about.html">タイムウェーバーとは</a>
+      <a href="healy.html">ヒーリーとは</a>
+      <a href="session.html">セッション</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="profile.html">プロフィール</a>
+      <a href="blog/">ブログ</a>
+      <a href="qa.html">よくある質問</a>
+      <a href="power.html">パワースポット</a>
+    </nav>
+    <div class="footer-sns">
+      <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.56 0H2.44A2.44 2.44 0 0 0 0 2.44v19.12A2.44 2.44 0 0 0 2.44 24h19.12A2.44 2.44 0 0 0 24 21.56V2.44A2.44 2.44 0 0 0 21.56 0zm-4.1 16.12a.63.63 0 0 1-.62.52h-1.26a.63.63 0 0 1-.62-.52l-.42-2.62H9.46l-.42 2.62a.63.63 0 0 1-.62.52H7.16a.63.63 0 0 1-.62-.72l2-10.74a.63.63 0 0 1 .62-.52h5.68a.63.63 0 0 1 .62.52l2 10.74a.6.6 0 0 1 0 .2zm-5.5-8.74-.9 4.74h1.88l-.98-4.74z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.13-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.55A3.02 3.02 0 0 0 .5 6.19 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.13 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.37-.55a3.02 3.02 0 0 0 2.13-2.14A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      </a>
+      <a href="line.html" aria-label="LINE公式">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 4.86.5 10.24c0 4.75 4.22 8.72 9.93 9.6.39.08.91.26 1.05.59.12.3.08.78.04 1.08l-.17 1.01c-.05.3-.24 1.18 1.03.64s6.86-4.04 9.36-6.91A8.54 8.54 0 0 0 23.5 10.24C23.5 4.86 18.35.5 12 .5zM7.64 13.15H5.57a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 1.14 0v3.05h1.5a.57.57 0 0 1 0 1.14zm2.06-.57a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 1.14 0zm4.69 0a.57.57 0 0 1-.57.57h-.03a.57.57 0 0 1-.46-.23l-1.96-2.67v2.33a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 .57-.57h.04c.18 0 .35.09.46.23l1.96 2.67V8.96a.57.57 0 0 1 1.14 0v3.62zm3.07-2.33a.57.57 0 0 1 0 1.14h-1.5v.62h1.5a.57.57 0 0 1 0 1.14H15.4a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 .57-.57h2.06a.57.57 0 0 1 0 1.14h-1.5v.72z"/></svg>
+      </a>
+    </div>
+    <div class="footer-legal">
+      <a href="pp.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="tokusho.html">特定商取引法に基づく表記</a>
+    </div>
+    <p class="copyright">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="ページトップへ戻る">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

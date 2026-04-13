@@ -4,29 +4,437 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>よくある質問 | タイムウェーバー8</title>
-  <meta name="description" content="">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta name="description" content="タイムウェーバー8のよくある質問。申込みの流れ・セッション内容・料金・お支払い・キャンセルについてまとめています。">
+  <meta name="page-summary" content="よくある質問ページを読んできました。セッションについて気になることがあるので教えてもらえますか？">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* QAカテゴリ */
+    .qa-category {
+      margin-bottom: 56px;
+    }
+    .qa-category-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: #a07840;
+      font-weight: 500;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .qa-category-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin: 0 0 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--bg-alt);
+      color: var(--text);
+    }
+
+    /* QAアイテム */
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    details.qa-item {
+      border-bottom: 1px solid var(--bg-alt);
+    }
+    details.qa-item:first-child {
+      border-top: 1px solid var(--bg-alt);
+    }
+    summary.qa-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 4px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.6;
+      user-select: none;
+    }
+    summary.qa-q::-webkit-details-marker { display: none; }
+    .qa-q-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(160,120,64,0.12);
+      color: #a07840;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .qa-q-text {
+      flex: 1;
+    }
+    @keyframes arrow-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(3px); }
+    }
+    .qa-q-arrow {
+      flex-shrink: 0;
+      color: #a07840;
+      font-size: 0.85rem;
+      margin-top: 4px;
+      transition: transform 0.25s ease;
+      animation: arrow-bob 1.8s ease-in-out infinite;
+    }
+    details[open] .qa-q-arrow {
+      transform: rotate(180deg);
+      animation: none;
+    }
+    .qa-a {
+      padding: 0 4px 24px calc(28px + 16px);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+    .qa-a p { margin: 0 0 12px; }
+    .qa-a p:last-child { margin-bottom: 0; }
+    .qa-a ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .qa-a code {
+      font-family: monospace;
+      font-size: 0.85em;
+      background: var(--bg-alt);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .qa-a .qa-note {
+      margin-top: 12px;
+      padding: 14px 18px;
+      background: rgba(160,120,64,0.07);
+      border-left: 3px solid #a07840;
+      font-size: 0.84rem;
+      line-height: 1.8;
+    }
+  </style>
 </head>
 <body>
 
+<!-- ヘッダー -->
 <header id="site-header">
-  <div class="container">
-    <!-- ナビゲーション -->
+  <div class="container header-inner">
+    <a href="index.html" class="logo">タイムウェーバー<span>8</span></a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">タイムウェーバーとは</a></li>
+        <li><a href="healy.html">ヒーリーとは</a></li>
+        <li><a href="session.html">セッション</a></li>
+        <li><a href="voice.html">お客様の声</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="blog/">ブログ</a></li>
+        <li><a href="qa.html">よくある質問</a></li>
+        <li class="nav-sep">
+          <div class="nav-cta-group">
+            <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="nav-cta nav-cta--gpt">ChatGPTに相談</a>
+            <a href="line.html" class="nav-cta nav-cta--line">LINE登録</a>
+          </div>
+          <div class="nav-sns-text">
+            <span class="nav-sns-label">SNS</span>
+            <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener">note</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-page-summary" id="btn-page-summary">要約をコピー</button>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-header-gpt">ChatGPT</a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main>
-  <div class="container">
-    <!-- よくある質問コンテンツ -->
+<!-- ページヒーロー -->
+<section class="page-hero page-hero--tw">
+  <div class="hero-tw-circles" aria-hidden="true">
+    <span></span><span></span><span></span>
   </div>
-</main>
+  <div class="container" style="position:relative; z-index:1;">
+    <h1>よくある質問</h1>
+    <p class="page-hero-desc">セッションのご不明点をまとめています。<br>解決しない場合はLINEでお気軽にご相談ください。</p>
+  </div>
+</section>
 
-<footer id="site-footer">
+<!-- QAコンテンツ -->
+<section class="section fade-in">
+  <div class="container" style="max-width: 760px;">
+
+    <!-- カテゴリ1：申込み・流れ -->
+    <div class="qa-category">
+      <p class="qa-category-label">Session Flow</p>
+      <h2 class="qa-category-title">申込み・セッションの流れ</h2>
+      <div class="qa-list">
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">申込みから調整完了までの流れを教えてください</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>LINEにてご連絡ください。希望のメニューが決まっている場合は、メニュー名を添えていただくとスムーズです。迷っている場合や何から始めればいいかわからない場合は「セッション希望」とお送りいただければ、一緒に選びます。</p>
+            <ul>
+              <li>LINEでご連絡 → 内容確認・ご案内</li>
+              <li>必要情報のご提供（お名前・写真・居住地域・生年月日）</li>
+              <li>お支払い手続き</li>
+              <li>分析・調整の実施</li>
+              <li>結果レポートのご報告（LINEにて納品）</li>
+            </ul>
+            <p class="qa-note">メニューの一覧は<a href="session.html">セッションページ</a>でご確認いただけます。お問い合わせは公式LINEからお願いしております。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">セッションに必要な情報は何ですか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>「お名前」「お写真」「お住まいの地域」「生年月日」があればセッションできます。</p>
+            <p>お写真は一人で写っているものが理想的です。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">ZoomセッションとLINEテキスト納品の違いは何ですか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p><strong>LINEテキスト納品</strong>は、分析・調整の結果をLINEでテキストレポートとしてお送りする形式です。時間を合わせる必要がなく、自分のペースで受け取れます。</p>
+            <p><strong>Zoomセッション</strong>は、オンライン対面でリアルタイムに進めます。その場で質問や確認ができるため、より対話的に進めたい方に向いています。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">願望やフォーカステキストの書き方がわかりません</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>うまく書けなくても大丈夫です。願望・目標・悩みをざっくりお知らせいただければ、フォーカステキストの提案をします。</p>
+            <p>「なんとなくこうなりたい」という曖昧な状態でも問題ありません。一緒に整理するところから始められます。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">調整期間はどのくらいですか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>原則1ヶ月間の調整となります。コースによっては3ヶ月・6ヶ月・12ヶ月のプランもご用意しています。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">効果は保証されますか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>保証はしていません。</p>
+            <p>タイムウェーバーは情報フィールドへのアプローチであり、変化の出方や時期は人によって異なります。「必ず変わります」とお伝えすることは、正直にできません。</p>
+            <p>ただ、変化に気づきやすくするために、セッション前後の状態を自分なりに記録しておくことをおすすめしています。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">何回受ければいいですか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>3ヶ月以上の継続をおすすめしています。細胞が入れ替わるサイクルがおよそ3ヶ月とされており、情報フィールドへのアプローチも同じくらいのスパンで変化が定着しやすいためです。</p>
+            <p>ただし、1ヶ月受けて気づきが何もなかったり、何も感じない場合は、無理に継続しなくていいと思っています。合う・合わないはあるので、そこは正直にお伝えします。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">1ヶ月後に変化のレポートはもらえますか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>調整後の結果レポートはお送りしますが、1ヶ月後の変化レポートはご用意していません。</p>
+            <p>変化の感じ方は人それぞれで、気づくタイミングも異なります。日常の中でどんな変化があったかを、ご自身で振り返っていただくのが一番正確だと考えています。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">人間以外を対象にセッションできますか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>できます。タイムウェーバーは情報フィールドへのアプローチなので、対象は人間に限りません。</p>
+            <ul>
+              <li><strong>動物（ペット）：</strong>犬・猫など、ペットの体調や感情面の調整が可能です</li>
+              <li><strong>組織・チーム：</strong>会社・グループのエネルギーや方向性の調整もできます</li>
+              <li><strong>場所・空間：</strong>家・建物・土地のエネルギー最適化コースもあります</li>
+              <li><strong>概念・プロジェクト：</strong>事業・創作物など、概念的なものも対象にできます</li>
+            </ul>
+            <p>詳しくはLINEにてご相談ください。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">家族や子どもを対象にセッションできますか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>可能です。ただし、「家族にこうなってほしい」「子どもをこう変えたい」という他者へのコントロールを目的とした調整はお受けしていません。他者の意思に反した方向への働きかけは、エネルギー的にも歪みが生じやすいためです。</p>
+            <p>理想的なのは、対象の方がどうなりたいかを本人に聞いて、その願望をもとにフォーカステキストを作る形です。</p>
+            <p>ただ、体調を崩していて本人に確認するのが難しい場合や、こっそり応援したい場合は、「本人が望んでいそうなこと」をフォーカステキストにする形で対応しています。本来であれば本人の了承が大前提ですが、状況に応じて相談ください。</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- カテゴリ2：料金・お支払い -->
+    <div class="qa-category">
+      <p class="qa-category-label">Payment</p>
+      <h2 class="qa-category-title">料金・お支払い・キャンセル</h2>
+      <div class="qa-list">
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">お支払い方法を教えてください</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p><strong>銀行振込：</strong>指定の口座へのお振込みとなります。</p>
+            <p><strong>クレジットカード：</strong>Visa / Mastercard / JCB / American Express 等、主要なカードがご利用いただけます。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">返金・キャンセルについて教えてください</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>セッション終了後の返金・キャンセルは原則不可です。</p>
+            <ul>
+              <li>Zoomセッション前日のキャンセル：セッション料金の50%のキャンセル料が発生します</li>
+              <li>Zoomセッション当日のキャンセル：セッション料金の100%のキャンセル料が発生します</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- カテゴリ3：LINE・連絡 -->
+    <div class="qa-category">
+      <p class="qa-category-label">Contact</p>
+      <h2 class="qa-category-title">LINE・ご連絡について</h2>
+      <div class="qa-list">
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">LINE登録で個人情報が知られませんか？</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>LINE登録するだけでは、個人情報が第三者に知られることはありません。</p>
+            <p>登録後に「やっぱり違うな」と思われた場合は、ブロックしていただければ大丈夫です。</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary class="qa-q">
+            <span class="qa-q-icon">Q</span>
+            <span class="qa-q-text">連絡したのに返信がありません</span>
+            <span class="qa-q-arrow">▼</span>
+          </summary>
+          <div class="qa-a">
+            <p>通常48時間以内にご返信しています。48時間を過ぎても返信がない場合は、お手数ですがもう一度ご連絡ください。</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LINE CTA -->
+<section class="section-cta fade-in">
   <div class="container">
-    <p>&copy; タイムウェーバー8 今田</p>
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Contact</p>
+    <h2>解決しない場合は<br>LINEでご相談ください</h2>
+    <p>セッション内容・料金・その他ご不明点はLINEにてお気軽にどうぞ。</p>
+    <div class="cta-btn-group">
+      <a href="line.html" class="btn-primary btn-line">LINE で相談する</a>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-secondary">まず ChatGPT に聞いてみる</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">タイムウェーバー8</a>
+    <nav class="footer-nav">
+      <a href="about.html">タイムウェーバーとは</a>
+      <a href="healy.html">ヒーリーとは</a>
+      <a href="session.html">セッション</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="profile.html">プロフィール</a>
+      <a href="blog/">ブログ</a>
+      <a href="qa.html">よくある質問</a>
+      <a href="power.html">パワースポット</a>
+      
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
+      <nav class="footer-legal">
+        <a href="pp.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+        <a href="tokusho.html">特定商取引法に基づく表記</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

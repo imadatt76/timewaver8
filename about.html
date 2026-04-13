@@ -4,16 +4,226 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>タイムウェーバーとは | タイムウェーバー8</title>
-  <meta name="description" content="タイムウェーバーは情報フィールドにアクセスし、願望・悩み・心身の状態を多次元的に分析・調整するドイツ生まれのデバイスです。仕組みと特徴をわかりやすく解説します。">
+  <meta name="description" content="タイムウェーバーは情報フィールドにアクセスし、心・体・意識・環境を多次元的に分析・調整するドイツ生まれのデバイス。仕組みとできること、こんな方に向けのページです。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="page-summary" content="タイムウェーバーについて調べてきました。自分の悩みや目標について、タイムウェーバーの視点から一緒に整理してもらえますか？
 
-タイムウェーバーはドイツ生まれの量子共鳴テクノロジーで、情報フィールド（過去・現在・未来の全情報がある場）にアクセスして、願望・悩み・心身の状態を多次元的に分析・調整するデバイスです。潜在意識のブロック、カルマ、先祖のパターンまでアプローチします。遠隔でも作用します。
+タイムウェーバーはドイツ生まれの情報フィールドテクノロジーです。一般的なアプローチが「結果」に対処するのに対し、タイムウェーバーは「原因となっている構造」に働きかけます。すべては情報→エネルギー→振動→周波数→物質という階層で成り立っており、情報フィールドにアクセスすることで根本から調整します。遠隔でも作用します。
 
 今の自分の状況を話すので、まず聞いてください。">
+  <style>
+    /* ページタブ */
+    .page-tabs {
+      display: inline-flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .page-tab {
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.6;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .page-tab--active {
+      background: #a07840;
+      color: #fff;
+    }
+    .page-tab--link {
+      color: #a07840;
+      border: 1px solid rgba(160,120,64,0.4);
+    }
+    .page-tab--link:hover {
+      background: rgba(160,120,64,0.1);
+    }
+
+    /* 情報→物質 フロー */
+    .hierarchy-flow {
+      margin: 40px 0 0;
+    }
+    .hierarchy-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--bg-alt);
+    }
+    .hierarchy-step:last-child { border-bottom: none; }
+    .hierarchy-arrow { display: none; }
+    .hierarchy-label {
+      background: #a07840;
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 3px;
+      min-width: 72px;
+      text-align: center;
+    }
+    .hierarchy-desc {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.75;
+    }
+    .hierarchy-caption {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: rgba(160,120,64,0.07);
+      border-left: 3px solid #a07840;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    /* 調整プロセス */
+    .process-flow {
+      margin-top: 40px;
+    }
+    .process-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .process-step-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 40px;
+    }
+    .process-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #a07840;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .process-connector {
+      width: 1px;
+      flex: 1;
+      min-height: 20px;
+      background: rgba(160,120,64,0.25);
+      margin: 4px 0;
+    }
+    .process-step:last-child .process-connector { display: none; }
+    .process-body {
+      padding-bottom: 20px;
+      flex: 1;
+    }
+    .process-body h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 4px;
+      padding-top: 8px;
+      color: var(--text);
+    }
+    .process-body p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.75;
+    }
+    .process-note {
+      margin-top: 8px;
+      padding: 20px 24px;
+      background: rgba(160,120,64,0.07);
+      border-left: 3px solid #a07840;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    /* こんな方に */
+    .who-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .who-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      background: var(--bg-alt);
+      border-radius: 8px;
+    }
+    .who-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #a07840;
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+    .who-item-body h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+    .who-item-body p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 769px) {
+      .hierarchy-flow {
+        display: flex;
+        align-items: flex-start;
+        border: 1px solid var(--bg-alt);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .hierarchy-step {
+        flex: 1;
+        flex-direction: column;
+        gap: 10px;
+        padding: 24px 16px;
+        border-bottom: none;
+        border-right: 1px solid var(--bg-alt);
+        align-items: flex-start;
+        text-align: left;
+      }
+      .hierarchy-step:last-child { border-right: none; }
+      .hierarchy-arrow {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        color: #a07840;
+        font-size: 1.4rem;
+        padding: 0 2px;
+        flex-shrink: 0;
+        opacity: 0.5;
+        line-height: 1;
+        margin-top: -8px;
+      }
+      .hierarchy-label { min-width: auto; width: 100%; text-align: center; }
+      .who-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -60,9 +270,13 @@
     <span></span><span></span><span></span>
   </div>
   <div class="container" style="position:relative; z-index:1;">
-    <p class="section-label">About TimeWaver</p>
+    <div class="page-tabs">
+      <span class="page-tab page-tab--active">タイムウェーバーとは</span>
+      <a href="about-deep.html" class="page-tab page-tab--link">Deep →</a>
+      <a href="ai.html" class="page-tab page-tab--link">AI活用 →</a>
+    </div>
     <h1>タイムウェーバーとは</h1>
-    <p class="page-hero-desc">目に見えない情報フィールドにアクセスし、<br>あなたの状態を多次元的に分析・調整するドイツ生まれのデバイスです。</p>
+    <p class="page-hero-desc">目に見えない情報フィールドにアクセスし、<br>心・体・意識・環境を多次元的に分析・調整するドイツ生まれのデバイスです。</p>
   </div>
 </section>
 
@@ -74,9 +288,119 @@
     </div>
     <div class="section-body">
       <p class="section-label">Overview</p>
-      <h2>量子場の周波数で、<br>根本にアプローチする</h2>
-      <p>タイムウェーバーは、物質的な体だけでなく、感情・思考・潜在意識・カルマ・先祖のパターンまで、その人の情報フィールドにアクセスして分析・調整するデバイスです。<br><br>表面的な症状ではなく、そこに至った根本原因を多次元的に探ります。病院では見つからない疲弊感、繰り返す人間関係のパターン、理由のわからないブロック。タイムウェーバーはその奥にあるものを可視化します。</p>
+      <h2>「結果」ではなく、<br>「原因の構造」に働きかける</h2>
+      <p>タイムウェーバーは、人や環境が持つ「情報フィールド」にアクセスし、エネルギーの状態や潜在的なブロックを分析・調整するシステムです。<br><br>一般的なアプローチが症状や結果に対処するのに対し、タイムウェーバーは原因となっている構造に働きかけます。体・感情・思考・意識・環境といった目に見えない領域まで含めて、全体を整えていくことを目的としています。</p>
     </div>
+  </div>
+</section>
+
+<!-- 基本思想（情報→物質）-->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Philosophy</p>
+    <h2>すべては情報からはじまる</h2>
+    <p>開発者のマーカス・シュミーク氏は、宇宙の構造についてこのように考えます。物質として現れるすべての現象は、より上位の「情報」の層から発生している、と。</p>
+    <div class="hierarchy-flow">
+      <div class="hierarchy-step">
+        <span class="hierarchy-label">情報</span>
+        <p class="hierarchy-desc">すべての根源。過去・現在・未来の情報が存在する場。タイムウェーバーがアクセスする領域。</p>
+      </div>
+      <span class="hierarchy-arrow" aria-hidden="true">›</span>
+      <div class="hierarchy-step">
+        <span class="hierarchy-label">エネルギー</span>
+        <p class="hierarchy-desc">情報が動き始める層。意識・感情・思考が属する。</p>
+      </div>
+      <span class="hierarchy-arrow" aria-hidden="true">›</span>
+      <div class="hierarchy-step">
+        <span class="hierarchy-label">振動</span>
+        <p class="hierarchy-desc">エネルギーが波として動く状態。オーラ・チャクラもこの層。</p>
+      </div>
+      <span class="hierarchy-arrow" aria-hidden="true">›</span>
+      <div class="hierarchy-step">
+        <span class="hierarchy-label">周波数</span>
+        <p class="hierarchy-desc">振動が特定のパターンを持った状態。細胞も意識も周波数として読み取れる。</p>
+      </div>
+      <span class="hierarchy-arrow" aria-hidden="true">›</span>
+      <div class="hierarchy-step">
+        <span class="hierarchy-label">物質</span>
+        <p class="hierarchy-desc">最終的に目に見える現実として現れる層。体・環境・出来事。</p>
+      </div>
+    </div>
+    <p class="hierarchy-caption">タイムウェーバーはこの流れの「上流」から作用します。物質次元に現れた問題を表面だけで変えようとするのではなく、情報フィールドにアクセスして根本から整える。それがタイムウェーバーのアプローチです。</p>
+  </div>
+</section>
+
+<!-- 情報フィールドとは -->
+<section class="section fade-in">
+  <div class="container section-inner section-inner--reverse">
+    <div class="section-circle-deco"></div>
+    <div class="section-body">
+      <p class="section-label">Information Field</p>
+      <h2>情報フィールドとは</h2>
+      <p>情報フィールドとは、個人の状態や出来事に関わるすべての情報が存在している領域です。過去・現在・未来の可能性も含めた、いわば"全体の設計図"のようなものです。<br><br>タイムウェーバーはこの情報フィールドにアクセスし、600のカテゴリと100万を超えるデータベースの中から、その人に関連する要因を探り出します。そして、最適な状態を妨げている要因に対して周波数を送り、調整を行います。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 調整のプロセス -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">How it works</p>
+    <h2>調整が届くまでの流れ</h2>
+    <p>願望や課題を設定してから、状態が変化していくまでの基本的な流れです。</p>
+    <div class="process-flow">
+      <div class="process-step">
+        <div class="process-step-side">
+          <div class="process-num">01</div>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-body">
+          <h3>願望・テーマを設定する</h3>
+          <p>「どうなりたいか」「何を変えたいか」を言葉にします。この意図がタイムウェーバーの分析の軸になります。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-side">
+          <div class="process-num">02</div>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-body">
+          <h3>情報フィールドにアクセスし、現在の状態を分析する</h3>
+          <p>そのテーマに関連する情報をもとに、今の状態をスキャンします。意識している部分も、していない部分も含めて分析します。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-side">
+          <div class="process-num">03</div>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-body">
+          <h3>本来の状態からのブロックを特定する</h3>
+          <p>本来の状態と一致していない部分（信念・感情・先祖のパターンなど）を特定します。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-side">
+          <div class="process-num">04</div>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-body">
+          <h3>理想的な状態の情報と共鳴させる</h3>
+          <p>特定された要因に対して周波数を送り、本来スムーズに進める状態へ整えます。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-side">
+          <div class="process-num">05</div>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-body">
+          <h3>その状態を維持し、定着させていく</h3>
+          <p>調整は一度で完結するものではなく、継続して積み重ねることで変化が現実に反映されていきます。</p>
+        </div>
+      </div>
+    </div>
+    <p class="process-note">この過程で、思考・感情・行動といった内側のパターンが少しずつ変化します。その結果として、選択やタイミング、人との関係性など、現実の流れにも変化が広がっていきます。</p>
   </div>
 </section>
 
@@ -98,32 +422,73 @@
       </div>
       <div class="for-card">
         <div class="for-num">03</div>
-        <h3>今の自分の状態を俯瞰する</h3>
-        <p>オーラ・チャクラ・感情・思考・環境・人間関係。これらを数値として可視化し、今どこにエネルギーが集中しているのかを客観的に把握できます。</p>
+        <h3>全体のバランスから整えていく</h3>
+        <p>特定の問題だけを見るのではなく、オーラ・チャクラ・感情・思考・環境・人間関係を含めた全体を俯瞰し、バランスの偏りを整えます。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 情報フィールドとは -->
-<section class="section section-alt fade-in">
-  <div class="container section-inner section-inner--reverse">
-    <div class="section-circle-deco"></div>
-    <div class="section-body">
-      <p class="section-label">Information Field</p>
-      <h2>情報フィールドとは</h2>
-      <p>情報フィールドは、インターネットのクラウドのようなものです。その人の過去・現在・未来、すべての情報が存在している場所とされています。<br><br>タイムウェーバーはこの情報フィールドにアクセスし、600のカテゴリと100万を超えるデータベースの中から、その人に関連する要因を探り出します。そして、最適な状態を妨げている要因に対して周波数を送り、調整を行います。</p>
+<!-- こんな方に -->
+<section class="section fade-in">
+  <div class="container">
+    <p class="section-label">For Who</p>
+    <h2>こんな方に</h2>
+    <p>利用者の約8割は女性。年代・職業を問わず、「今の状態を根本から変えたい」「目に見えない部分から整えたい」という方に多くご利用いただいています。</p>
+    <div class="who-list">
+      <div class="who-item">
+        <div class="who-dot"></div>
+        <div class="who-item-body">
+          <h3>頑張っているのに結果が出にくい</h3>
+          <p>行動はしているのに流れが変わらない。見えないところで何かが止まっている感覚がある。</p>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-dot"></div>
+        <div class="who-item-body">
+          <h3>繰り返すパターンを変えたい</h3>
+          <p>人間関係・仕事・お金で同じ問題が繰り返される。原因を根本から整えたい。</p>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-dot"></div>
+        <div class="who-item-body">
+          <h3>体や心の不調の原因がわからない</h3>
+          <p>病院では異常なし。でも疲れが取れない、気力が湧かない。</p>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-dot"></div>
+        <div class="who-item-body">
+          <h3>お金や仕事の流れを変えたい</h3>
+          <p>豊かさを阻むブロック、自己価値の低さ。意識とお金のエネルギーの関係を整えたい。</p>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-dot"></div>
+        <div class="who-item-body">
+          <h3>自分を深く理解したい</h3>
+          <p>ハイヤーセルフ・魂の目的・自分の本質。自己理解を深め、自分らしく動きたい。</p>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-dot"></div>
+        <div class="who-item-body">
+          <h3>家族・パートナーのために</h3>
+          <p>子どもや親、パートナーを対象にセッションを申し込む方も多くいます。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 遠隔で届く理由 -->
-<section class="section fade-in">
+<section class="section section-alt fade-in">
   <div class="container section-inner">
     <div class="section-body">
       <p class="section-label">Remote Session</p>
       <h2>なぜ遠隔で届くのか</h2>
-      <p>情報フィールドは時間・空間に依存しません。物理的な距離は関係なく、情報フィールドにアクセスできれば調整は届きます。<br><br>これが、LINEテキスト納品やZoomオンラインセッションでも効果が変わらない理由です。場所を問わず、日本全国・海外からでもセッションを受けることができます。</p>
+      <p>情報フィールドは時間・空間に依存しません。物理的な距離は関係なく、情報フィールドにアクセスできれば調整は届きます。<br><br>量子物理学では、情報は距離に関係なくつながることができるとされています（非局所性）。タイムウェーバーはこの性質を応用しており、LINEテキスト納品やZoomオンラインセッションでも効果が変わりません。日本全国・海外からでもセッションを受けることができます。</p>
     </div>
     <div class="section-img">
       <img src="assets/images/timewaver.png" alt="タイムウェーバーとリモートセッション">
@@ -132,19 +497,19 @@
 </section>
 
 <!-- 開発者 -->
-<section class="section section-alt fade-in">
+<section class="section fade-in">
   <div class="container">
     <div class="about-developer">
       <p class="section-label">Developer</p>
       <h2>開発者について</h2>
       <div class="developer-inner">
         <div class="developer-body">
-          <p>タイムウェーバーを開発したのは、ドイツの物理学者・マーカス・シュミーク氏です。<br><br>量子物理学を専攻した後、21歳でインドに渡り約12年間出家・修行。科学とスピリチュアリティの両方を深く学んだ彼が目指したのは、「その2つを繋ぐデバイス」でした。<br><br>彼が座右の銘としているのは、ニコラ・テスラの言葉。</p>
+          <p>タイムウェーバーを開発したのは、ドイツの物理学者・マーカス・シュミーク氏です。<br><br>量子物理学を専攻した後、21歳でインドに渡り約12年間出家・修行。科学とスピリチュアリティの両方を深く学んだ彼が掲げたのは、「科学のないスピリチュアリティは盲目、スピリチュアリティのない科学は不完全」という信念でした。<br><br>物質と意識の橋渡しをする技術として2007年にタイムウェーバーを実用化。その哲学と開発の背景は、詳細ページで詳しく紹介しています。</p>
           <blockquote class="developer-quote">
             <p>「宇宙の秘密を知りたければ、エネルギー・振動・周波数の観点から考えよ。」</p>
-            <footer>— Nikola Tesla</footer>
+            <footer>— Nikola Tesla（マーカス氏の座右の銘）</footer>
           </blockquote>
-          <p>この哲学が、タイムウェーバーの根幹に流れています。</p>
+          <a href="about-deep.html#marcus" class="link-arrow" style="margin-top:16px; display:inline-block;">マーカス氏の哲学と思想を詳しく読む →</a>
         </div>
       </div>
     </div>
@@ -152,13 +517,13 @@
 </section>
 
 <!-- 深掘り・セッションへのリンク -->
-<section class="section fade-in">
+<section class="section section-alt fade-in">
   <div class="container">
     <div class="about-links">
       <div class="about-link-card">
         <p class="section-label">Deep Dive</p>
         <h3>もっと詳しく知りたい方へ</h3>
-        <p>レベルウェーブ・12次元・効力と関連性の数値の読み方など、タイムウェーバーの仕組みをより深く解説しています。</p>
+        <p>マーカス氏の哲学・量子もつれ・レベルウェーブ・12次元・数値の読み方など、タイムウェーバーの仕組みをより深く解説しています。</p>
         <a href="about-deep.html" class="link-arrow">詳細な仕組みを読む →</a>
       </div>
       <div class="about-link-card">
@@ -167,6 +532,24 @@
         <p>LINEテキスト納品とZoomオンライン対面の2種類。初めての方向けのお試しコースからご利用いただけます。</p>
         <a href="session.html" class="link-arrow">セッションメニューを見る →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA セクション -->
+<section class="section-cta fade-in">
+  <div class="container">
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Contact</p>
+    <h2>まずはLINEで<br>ご相談ください</h2>
+    <p>お問い合わせ・セッションのご相談はLINEのみで受け付けています。<br>メールでのお問い合わせは行っておりません。</p>
+    <div class="cta-btn-group">
+      <a href="line.html" class="btn-primary btn-line">LINE で相談する</a>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-secondary">まず ChatGPT に聞いてみる</a>
     </div>
   </div>
 </section>
@@ -184,7 +567,7 @@
       <a href="blog/">ブログ</a>
       <a href="qa.html">よくある質問</a>
       <a href="power.html">パワースポット</a>
-      <a href="seminar.html">セミナールーム</a>
+      
     </nav>
     <div class="footer-sns">
       <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
@@ -199,9 +582,10 @@
     </div>
     <div class="footer-legal">
       <a href="pp.html">プライバシーポリシー</a>
-      <a href="terms.html">特定商取引法に基づく表記</a>
+      <a href="terms.html">利用規約</a>
+        <a href="tokusho.html">特定商取引法に基づく表記</a>
     </div>
-    <p class="copyright">&copy; タイムウェーバー8 今田</p>
+    <p class="copyright">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
   </div>
 </footer>
 

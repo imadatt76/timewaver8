@@ -4,19 +4,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>タイムウェーバーの詳しい仕組み | タイムウェーバー8</title>
-  <meta name="description" content="タイムウェーバーの仕組みをより詳しく解説。レベルウェーブ・12次元・情報フィールド・効力と関連性の数値の読み方まで、深く知りたい方向けのページです。">
+  <meta name="description" content="タイムウェーバーの仕組みを深く解説。マーカス・シュミーク氏の哲学、4つの層、12次元、量子もつれ、効力と関連性の数値の読み方まで。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="page-summary" content="タイムウェーバーの詳しい仕組みを読んできました。以下を理解しています。
 
-・レベルウェーブ：物質・エネルギー・情報・意識の4層で問題を分析する
-・12次元：第1〜3次元（物質）、第4〜6次元（感情）、第7〜9次元（思考）、第10〜12次元（意識・スピリチュアル）
+・開発者マーカス・シュミーク氏：量子物理学→インド12年修行→科学とスピリチュアリティの統合が生涯テーマ
+・基本哲学：すべては情報→エネルギー→振動→周波数→物質という階層
+・4つの層：物質・エネルギー・情報・意識から問題を多次元的に見る
+・12次元：第1〜3（物質）、第4〜6（感情）、第7〜9（思考）、第10〜12（意識・スピリチュアル）
 ・効力：D=肉体レベル、C=思考感情レベル、LM=潜在意識・スピリチュアル
 ・関連性：+100寄り=顕在意識（すでに気づいている）、−100寄り=潜在意識（まだ気づいていない）
+・量子もつれ：距離に依存しない非局所性が遠隔作用の背景概念（科学的証明はされていない）
 
 セッションレポートの内容や、今気になっていることについて一緒に考えてもらえますか？">
+  <style>
+    /* ページタブ */
+    .page-tabs {
+      display: inline-flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .page-tab {
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.6;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .page-tab--active {
+      background: #a07840;
+      color: #fff;
+    }
+    .page-tab--link {
+      color: #a07840;
+      border: 1px solid rgba(160,120,64,0.4);
+    }
+    .page-tab--link:hover {
+      background: rgba(160,120,64,0.1);
+    }
+
+    /* マーカス セクション */
+    .marcus-bio {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .marcus-bio-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--bg-alt);
+    }
+    .marcus-bio-item:last-child { border-bottom: none; }
+    .marcus-bio-year {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #a07840;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 72px;
+      padding-top: 3px;
+    }
+    .marcus-bio-body h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+    .marcus-bio-body p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.75;
+    }
+    .marcus-refs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .marcus-ref-card {
+      background: var(--bg-alt);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .marcus-ref-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin: 0 0 5px;
+      color: var(--text);
+    }
+    .marcus-ref-body {
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* 量子セクション */
+    .quantum-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .quantum-card {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .quantum-card h3 {
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+    .quantum-card p {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.8;
+    }
+    .quantum-honest {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: rgba(160,120,64,0.07);
+      border-left: 3px solid #a07840;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    /* 注意点 */
+    .caution-box {
+      margin-top: 40px;
+      padding: 24px 28px;
+      border: 1px solid rgba(160,120,64,0.3);
+      border-radius: 12px;
+      background: rgba(160,120,64,0.04);
+    }
+    .caution-box p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.85;
+    }
+    .caution-box p + p { margin-top: 12px; }
+
+    @media (min-width: 769px) {
+      .marcus-refs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .quantum-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -60,15 +212,87 @@
 <!-- ページヒーロー -->
 <section class="page-hero">
   <div class="container">
-    <p class="section-label"><a href="about.html" class="breadcrumb-link">タイムウェーバーとは</a> / Deep</p>
+    <div class="page-tabs">
+      <a href="about.html" class="page-tab page-tab--link">← タイムウェーバーとは</a>
+      <span class="page-tab page-tab--active">Deep</span>
+      <a href="ai.html" class="page-tab page-tab--link">AI活用 →</a>
+    </div>
     <h1>タイムウェーバーの<br>詳しい仕組み</h1>
-    <p class="page-hero-desc">4つの層、12次元、データベース、数値の読み方まで。<br>タイムウェーバーをもっと深く知りたい方向けのページです。</p>
+    <p class="page-hero-desc">開発者の哲学から、4つの層・12次元・量子もつれ・数値の読み方まで。<br>タイムウェーバーをもっと深く知りたい方向けのページです。</p>
     <p class="deep-disclaimer">このページの内容は、タイムウェーバー8が公式資料・マニュアルをもとに解釈・編集したものです。タイムウェーバーの解釈はオペレーターによって異なる場合があります。</p>
   </div>
 </section>
 
-<!-- レベルウェーブ -->
-<section class="section fade-in">
+<!-- マーカス・シュミーク -->
+<section id="marcus" class="section fade-in">
+  <div class="container">
+    <p class="section-label">Developer</p>
+    <h2>開発者・マーカス・シュミーク</h2>
+    <p class="deep-intro">タイムウェーバーは、ドイツの物理学者・マーカス・シュミーク氏によって開発されました。量子物理学とスピリチュアリティという、一見対極にある2つの世界を統合することが彼の生涯のテーマです。</p>
+
+    <div class="marcus-bio">
+      <div class="marcus-bio-item">
+        <span class="marcus-bio-year">1980年代</span>
+        <div class="marcus-bio-body">
+          <h3>量子物理学を専攻</h3>
+          <p>大学で量子物理学を学ぶ中で、物質だけでは説明できない領域に関心を持ち始める。「科学の枠内だけでは、現実の本質に届かない」という問いを抱えるようになる。</p>
+        </div>
+      </div>
+      <div class="marcus-bio-item">
+        <span class="marcus-bio-year">21歳〜</span>
+        <div class="marcus-bio-body">
+          <h3>インドで約12年間の修道生活</h3>
+          <p>大学教育の限界を感じ、インドへ渡り出家。哲学・瞑想・スピリチュアルな探究を約12年間にわたって深める。科学と意識の世界を両方から見る視点を得た時期。</p>
+        </div>
+      </div>
+      <div class="marcus-bio-item">
+        <span class="marcus-bio-year">帰国後</span>
+        <div class="marcus-bio-body">
+          <h3>「科学とスピリチュアリティの橋渡し」を使命に</h3>
+          <p>「科学のないスピリチュアリティは盲目。スピリチュアリティのない科学は不完全。」この信念のもと、両者を統合する実用ツールの開発に着手する。</p>
+        </div>
+      </div>
+      <div class="marcus-bio-item">
+        <span class="marcus-bio-year">2007年</span>
+        <div class="marcus-bio-body">
+          <h3>タイムウェーバーを実用化</h3>
+          <p>情報フィールドにアクセスし、多次元的に分析・調整できる機器としてタイムウェーバーを実用化。科学と意識の統合を「使えるデバイス」として形にした。</p>
+        </div>
+      </div>
+      <div class="marcus-bio-item">
+        <span class="marcus-bio-year">その後</span>
+        <div class="marcus-bio-body">
+          <h3>ヒーリーを開発——テクノロジーの民主化</h3>
+          <p>タイムウェーバーの技術を一般家庭でも使えるよう小型化し、ヒーリーを開発。「1万世帯への普及」を目指し、誰もが周波数テクノロジーにアクセスできる時代を目指している。</p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="developer-quote" style="margin-top:40px;">
+      <p>「宇宙の秘密を知りたければ、エネルギー・振動・周波数の観点から考えよ。」</p>
+      <footer>— Nikola Tesla（マーカス氏の座右の銘）</footer>
+    </blockquote>
+
+    <p class="deep-body" style="margin-top:32px;">マーカス氏が参考にした理論・人物は以下のとおりです。</p>
+    <div class="marcus-refs">
+      <div class="marcus-ref-card">
+        <p class="marcus-ref-name">ニコラ・テスラ</p>
+        <p class="marcus-ref-body">「エネルギー・振動・周波数」で宇宙を理解する視点。マーカス氏の哲学の根幹に流れる言葉。</p>
+      </div>
+      <div class="marcus-ref-card">
+        <p class="marcus-ref-name">ブルクハルト・ハイム</p>
+        <p class="marcus-ref-body">12次元理論の提唱者。タイムウェーバーが物質〜意識の層を多次元的に扱う理論的基盤となっている。</p>
+      </div>
+      <div class="marcus-ref-card">
+        <p class="marcus-ref-name">カール・F・V・ヴァイツゼッカー</p>
+        <p class="marcus-ref-body">量子哲学者。マーカス氏が直接学んだ人物であり、「情報が物質の根底にある」という思想に影響を与えた。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4つの層 -->
+<section class="section section-alt fade-in">
   <div class="container">
     <p class="section-label">4 Layers</p>
     <h2>4つの層から問題を見る</h2>
@@ -99,7 +323,7 @@
 </section>
 
 <!-- 12次元 -->
-<section class="section section-alt fade-in">
+<section class="section fade-in">
   <div class="container">
     <p class="section-label">Dimensions</p>
     <h2>12次元という概念</h2>
@@ -137,11 +361,11 @@
   </div>
 </section>
 
-<!-- データベース -->
-<section class="section fade-in">
+<!-- データベースと仕組み -->
+<section class="section section-alt fade-in">
   <div class="container">
-    <p class="section-label">Database</p>
-    <h2>600カテゴリ・100万超のデータベース</h2>
+    <p class="section-label">Database & Process</p>
+    <h2>データベースと分析の仕組み</h2>
     <p class="deep-intro">タイムウェーバーが的確な「答え」を出せる理由は、膨大なデータベースにあります。</p>
     <div class="deep-db-grid">
       <div class="deep-db-card">
@@ -153,7 +377,60 @@
         <p>データ総数</p>
       </div>
     </div>
-    <p class="deep-body">これらのデータが階層構造で整理されており、その人の情報フィールドと照合することで、関連度の高い要因を絞り込みます。また、プラクティショナーが独自のデータベースを作成・追加できる点も、タイムウェーバーの大きな特徴のひとつです。</p>
+    <p class="deep-body">これらのデータが階層構造で整理されており、その人の情報フィールドと照合することで、関連度の高い要因を絞り込みます。また、プラクティショナーが独自のデータベースを作成・追加できる点も特徴のひとつです。</p>
+
+    <h3 class="deep-h3" style="margin-top:48px;">分析から調整までの流れ</h3>
+    <div class="deep-dim-list" style="margin-top:24px;">
+      <div class="deep-dim-item">
+        <span class="deep-dim-range">Step 01</span>
+        <div>
+          <h3>情報フィールドにアクセス</h3>
+          <p>クアントムライト共振器を通じて、その人の情報フィールドにアクセスします。</p>
+        </div>
+      </div>
+      <div class="deep-dim-item">
+        <span class="deep-dim-range">Step 02</span>
+        <div>
+          <h3>関連性の高いデータを抽出</h3>
+          <p>データベースの中から、その人の現在の状態に関連性の高い項目を特定します。</p>
+        </div>
+      </div>
+      <div class="deep-dim-item">
+        <span class="deep-dim-range">Step 03</span>
+        <div>
+          <h3>原因となる要素を特定</h3>
+          <p>関連性の高い項目のうち、最適な状態を妨げている要因を絞り込みます。</p>
+        </div>
+      </div>
+      <div class="deep-dim-item">
+        <span class="deep-dim-range">Step 04</span>
+        <div>
+          <h3>周波数を送り調整する</h3>
+          <p>特定された要因に対して周波数を送り、情報フィールド上で最適な状態へ調整します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- レベルウェーブ -->
+<section id="levelwave" class="section fade-in">
+  <div class="container">
+    <p class="section-label">LevelWave</p>
+    <h2>レベルウェーブ（自動調整機能）</h2>
+    <p class="deep-intro">タイムウェーバーの中でも特に注目度の高い機能が「レベルウェーブ」です。質問設定すら含めてすべてを自動で行う分析・調整システムで、1億2400万以上のデータをもとに必要な領域へアプローチします。</p>
+    <p class="deep-body">通常の分析はクライアントが質問を設定しますが、レベルウェーブはその質問さえも自動で選びます。クライアント自身が気づいていない深い意識の領域まで含めて調整されるため、より包括的なサポートが可能になります。</p>
+    <div class="deep-potency-grid" style="margin-top:32px;">
+      <div class="deep-potency-card">
+        <span class="deep-potency-label" style="font-size:0.85rem; padding:6px 16px;">共鳴増幅</span>
+        <p>良い状態・望ましいエネルギーをより強く定着させる調整。</p>
+      </div>
+      <div class="deep-potency-card">
+        <span class="deep-potency-label" style="font-size:0.85rem; padding:6px 16px;">共鳴阻止</span>
+        <p>不要な影響・ネガティブなパターンを取り除く調整。</p>
+      </div>
+    </div>
+    <p style="margin-top: 32px; font-size: 13px; color: var(--text-mid);">レベルウェーブのお申し込みは<a href="session.html#levelwave-option" style="color: var(--text); border-bottom: 1px solid var(--border);">セッションページ</a>からどうぞ。</p>
   </div>
 </section>
 
@@ -214,7 +491,7 @@
       </div>
     </div>
 
-    <h3 class="deep-h3" style="margin-top: 64px;">関連性（Relevance）— 本人の気づきのレベルを示す</h3>
+    <h3 class="deep-h3" style="margin-top:64px;">関連性（Relevance）— 本人の気づきのレベルを示す</h3>
     <p class="deep-body">関連性は −100 〜 +100 の数値で示されます。</p>
     <div class="deep-relevance">
       <div class="deep-relevance-item deep-relevance-plus">
@@ -226,7 +503,7 @@
         <p>潜在意識レベル。本人がまだ気づいていない、深い無意識の領域にあるテーマ。</p>
       </div>
     </div>
-    <p class="deep-body" style="margin-top: 24px;">マイナス値が深い理由は、無意識に抑圧されているためです。表面には出ていないけれど、行動や感情に大きく影響している場合があります。</p>
+    <p class="deep-body" style="margin-top:24px;">マイナス値が深い理由は、無意識に抑圧されているためです。表面には出ていないけれど、行動や感情に大きく影響している場合があります。</p>
   </div>
 </section>
 
@@ -237,6 +514,47 @@
     <h2>フォーカステキストについて</h2>
     <p class="deep-intro">タイムウェーバーのセッションでは、「フォーカステキスト」と呼ばれる願望文を作成します。</p>
     <p class="deep-body">自分の最高の未来を意識・イメージし、それをテキストとして書き出します。このフォーカステキストがタイムウェーバーの分析・調整の軸になります。<br><br>ポイントは「行先を自分で決める」こと。タイムウェーバーはナビゲーターですが、どこへ向かうかを決めるのはあなた自身です。「何をすればいいかわからない」という漠然とした問いより、「○○になりたい、そのために何が必要か」という具体的な問いの方が、より的確な分析ができます。<br><br>またタイムウェーバーは、エゴや利己的な目的には作用しにくいとされています。「なぜその目標が必要なのか」という背景や本質を深く見るほど、より根本的な調整が可能になります。</p>
+    <p class="deep-body" style="margin-top:24px;">調整の効果は一度で完結するものではなく、継続することで変化が積み重なります。潜在意識への定着には時間が必要で、段階的に整っていくプロセスのため、最低でも3ヶ月以上の継続が推奨されています。</p>
+  </div>
+</section>
+
+<!-- 量子プロセスと量子もつれ -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Quantum</p>
+    <h2>量子プロセスと量子もつれ</h2>
+    <p class="deep-intro">「なぜ遠隔で届くのか」という疑問の背景にある概念として、量子物理学の考え方があります。</p>
+    <div class="quantum-grid">
+      <div class="quantum-card">
+        <h3>量子プロセスとは</h3>
+        <p>原子・電子・フォトン（光子）などの極めて小さなスケールで起こる物理現象の総称です。この領域では、状態が確率的に決まる・観測によって状態が変化する・粒子と波の両方の性質を持つ、といった通常の物理とは異なる振る舞いが見られます。タイムウェーバー内部の電子回路や光を扱う領域で、このような量子レベルのプロセスが関与していると考えられています。</p>
+      </div>
+      <div class="quantum-card">
+        <h3>量子もつれとは</h3>
+        <p>2つ以上の粒子が強く関連づけられた状態を指します。一方の粒子の状態が決まると、距離に関係なくもう一方の状態も同時に決まるという性質があります。これは「非局所性」と呼ばれ、従来の距離・時間の制約を超えた関係性として知られています。</p>
+      </div>
+      <div class="quantum-card">
+        <h3>タイムウェーバーとの関係</h3>
+        <p>タイムウェーバーでは、遠隔での分析・調整が可能であり、対象と情報が距離に関係なく結びつくという特徴があります。この現象は量子もつれの「似た性質」として説明されることがあります。ただし重要なのは、物理的なエネルギーを送るというよりも、情報を扱うための基盤として量子プロセスが存在しているという点です。</p>
+      </div>
+      <div class="quantum-card">
+        <h3>共鳴との違い</h3>
+        <p>タイムウェーバーの中心概念である「共鳴」は、情報同士の関連性・状態の一致（同期）によって起こります。これは量子もつれのような「強い相関関係」とは異なり、必ずしも同時に状態が決まるわけではなく、段階的に整合していくプロセスです。</p>
+      </div>
+    </div>
+    <p class="quantum-honest">タイムウェーバーが量子もつれを直接利用していると科学的に証明されているわけではありません。量子物理学的な考え方を背景に持ちながら、情報のつながりと共鳴を扱うシステムとして理解するのが適切です。</p>
+  </div>
+</section>
+
+<!-- 注意点 -->
+<section class="section fade-in">
+  <div class="container">
+    <p class="section-label">Note</p>
+    <h2>ご利用にあたって</h2>
+    <div class="caution-box">
+      <p>タイムウェーバーは医療機器ではありません。疾病の診断・治療・予防を目的としたものではなく、自己理解やエネルギー状態の最適化をサポートするためのツールです。</p>
+      <p>体の不調や精神的な問題については、必要に応じて医療機関への相談を優先してください。タイムウェーバーのセッションは医療の代替ではなく、あくまで補助的・自己調整的なアプローチとして活用いただくものです。</p>
+    </div>
   </div>
 </section>
 
@@ -258,6 +576,24 @@
   </div>
 </section>
 
+<!-- LINE CTA セクション -->
+<section class="section-cta fade-in">
+  <div class="container">
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Contact</p>
+    <h2>まずはLINEで<br>ご相談ください</h2>
+    <p>お問い合わせ・セッションのご相談はLINEのみで受け付けています。<br>メールでのお問い合わせは行っておりません。</p>
+    <div class="cta-btn-group">
+      <a href="line.html" class="btn-primary btn-line">LINE で相談する</a>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-secondary">まず ChatGPT に聞いてみる</a>
+    </div>
+  </div>
+</section>
+
 <!-- フッター -->
 <footer id="site-footer">
   <div class="container footer-inner">
@@ -271,7 +607,7 @@
       <a href="blog/">ブログ</a>
       <a href="qa.html">よくある質問</a>
       <a href="power.html">パワースポット</a>
-      <a href="seminar.html">セミナールーム</a>
+      
     </nav>
     <div class="footer-sns">
       <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
@@ -286,14 +622,15 @@
     </div>
     <div class="footer-legal">
       <a href="pp.html">プライバシーポリシー</a>
-      <a href="terms.html">特定商取引法に基づく表記</a>
+      <a href="terms.html">利用規約</a>
+        <a href="tokusho.html">特定商取引法に基づく表記</a>
     </div>
-    <p class="copyright">&copy; タイムウェーバー8 今田</p>
+    <p class="copyright">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
   </div>
 </footer>
 
 <button id="back-to-top" aria-label="ページトップへ戻る">
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2020/svg">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </button>

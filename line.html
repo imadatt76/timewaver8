@@ -3,30 +3,501 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LINE登録 | タイムウェーバー8</title>
-  <meta name="description" content="">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <title>公式LINE登録 | タイムウェーバー8</title>
+  <meta name="description" content="公式LINEに登録するだけで、タイムウェーバーによる毎日のエネルギー調整を無料で受け取れます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    :root {
+      --line-green: #06C755;
+      --line-green-dark: #05a849;
+    }
+
+    /* ヒーロー */
+    .line-hero {
+      background: var(--bg-alt);
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .line-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .line-hero::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .line-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      margin: 10px 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .line-hero .hero-sub {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* LINE登録ボタン */
+    .btn-line-register {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--line-green);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 18px 40px;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-line-register:hover {
+      background: var(--line-green-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-line-register svg {
+      flex-shrink: 0;
+    }
+
+    .btn-line-note {
+      display: block;
+      font-size: 11px;
+      color: var(--text-light);
+      margin-top: 12px;
+      letter-spacing: 0.06em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 理由セクション */
+    .line-reason {
+      padding: 80px 0;
+    }
+
+    .reason-lead {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .reason-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+
+    .reason-list li {
+      background: var(--bg-alt);
+      padding: 20px 24px;
+      font-size: 14px;
+      color: var(--text-mid);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      line-height: 1.7;
+    }
+
+    .reason-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-light);
+      flex-shrink: 0;
+    }
+
+    .reason-note {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    /* 個別調整セクション */
+    .line-individual {
+      background: var(--bg-alt);
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .individual-card {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 36px 32px;
+      margin-bottom: 32px;
+    }
+
+    .individual-price {
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin: 8px 0 4px;
+    }
+
+    .individual-price span {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+    }
+
+    .individual-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .individual-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      display: flex;
+      gap: 10px;
+    }
+
+    .individual-list li:last-child {
+      border-bottom: none;
+    }
+
+    .individual-list li::before {
+      content: '–';
+      color: var(--text-light);
+      flex-shrink: 0;
+    }
+
+    .individual-note {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-top: 16px;
+    }
+
+    /* こんな方に */
+    .line-for {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+
+    .for-item {
+      background: var(--bg-alt);
+      padding: 18px 24px;
+      font-size: 13px;
+      color: var(--text-mid);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .for-item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-light);
+      flex-shrink: 0;
+    }
+
+    /* 最終CTA */
+    .line-final-cta {
+      background: var(--bg-alt);
+      padding: 80px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .line-final-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .line-final-cta .final-sub {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+      line-height: 1.9;
+    }
+
+    .final-note {
+      display: block;
+      font-size: 11px;
+      color: var(--text-light);
+      margin-top: 16px;
+    }
+
+    @media (min-width: 769px) {
+      .reason-list {
+        grid-template-columns: 1fr 1fr;
+      }
+      .for-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
+<!-- ヘッダー -->
 <header id="site-header">
-  <div class="container">
-    <!-- ナビゲーション -->
+  <div class="container header-inner">
+    <a href="index.html" class="logo">タイムウェーバー<span>8</span></a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">タイムウェーバーとは</a></li>
+        <li><a href="healy.html">ヒーリーとは</a></li>
+        <li><a href="session.html">セッション</a></li>
+        <li><a href="voice.html">お客様の声</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="blog/">ブログ</a></li>
+        <li><a href="qa.html">よくある質問</a></li>
+        <li class="nav-sep">
+          <div class="nav-cta-group">
+            <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="nav-cta nav-cta--gpt">ChatGPTに相談</a>
+            <a href="line.html" class="nav-cta nav-cta--line">LINE登録</a>
+          </div>
+          <div class="nav-sns-text">
+            <span class="nav-sns-label">SNS</span>
+            <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener">note</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-header-gpt">ChatGPT</a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main>
-  <div class="container">
-    <!-- LINE登録コンテンツ -->
+<!-- ヒーロー -->
+<section class="line-hero">
+  <div class="container" style="position:relative; z-index:1;">
+    <p class="section-label">Official LINE</p>
+    <h1>登録するだけで、<br>新鮮なエネルギーが<br>毎日受け取れる。</h1>
+    <p class="hero-sub">公式LINEではグループ全体をタイムウェーバーで調整しています。<br>「幸せ」「成功」「感謝」「愛」をテーマに、毎日エネルギーを整えています。</p>
+    <a href="https://lin.ee/ujAR0Un" target="_blank" rel="noopener" class="btn-line-register">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 4.86.5 10.24c0 4.75 4.22 8.72 9.93 9.6.39.08.91.26 1.05.59.12.3.08.78.04 1.08l-.17 1.01c-.05.3-.24 1.18 1.03.64s6.86-4.04 9.36-6.91A8.54 8.54 0 0 0 23.5 10.24C23.5 4.86 18.35.5 12 .5z"/></svg>
+      無料で公式LINEに登録する
+    </a>
+    <span class="btn-line-note">登録解除はいつでもOK</span>
   </div>
-</main>
+</section>
 
-<footer id="site-footer">
+<!-- 毎日調整を受ける理由 -->
+<section class="line-reason">
   <div class="container">
-    <p>&copy; タイムウェーバー8 今田</p>
+    <p class="section-label">Why Daily Adjustment</p>
+    <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,26px); font-weight:300; letter-spacing:0.08em; margin-bottom:24px;">毎日タイムウェーバーで<br>整える理由</h2>
+    <p class="reason-lead">現実がうまく進まない理由は、努力や行動だけではなく、<strong>見えないエネルギーのズレ</strong>が原因で起きることがあります。公式LINEでは、登録メンバー全体をひとつのグループとして捉え、毎日タイムウェーバーで調整しています。</p>
+
+    <ul class="reason-list">
+      <li>心が軽くなる</li>
+      <li>運気の流れが整う</li>
+      <li>停滞していた物事が動き始める</li>
+      <li>良い出会いやチャンスが増える</li>
+    </ul>
+
+    <p class="reason-note">登録しておくだけでOK。毎日新鮮なエネルギーを受け取り続けることで、少しずつ現実の流れが整っていきます。</p>
+  </div>
+</section>
+
+<!-- 初回個別調整 -->
+<section class="line-individual">
+  <div class="container">
+    <p class="section-label">Individual Session</p>
+    <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,26px); font-weight:300; letter-spacing:0.08em; margin-bottom:24px;">初回波動調整（個別）</h2>
+    <p style="font-size:13px; color:var(--text-mid); line-height:1.9; margin-bottom:32px;">無料の毎日調整だけでも十分ですが、願望を具体的に前へ進めたい方に向けて、初回のみ個別調整をご用意しています。</p>
+
+    <div class="individual-card">
+      <p class="section-label" style="margin-bottom:8px;">初回限定</p>
+      <p class="individual-price">2,500<span> 円</span></p>
+      <ul class="individual-list">
+        <li>願望2つのタイムウェーバー分析・調整</li>
+        <li>願望を邪魔している「エネルギーのズレ」を特定</li>
+        <li>分析結果のレポートをLINEでお届け</li>
+        <li>調整期間：1ヶ月</li>
+        <li>願望のテーマはなんでもOK（お金・出会い・健康・仕事・人間関係など）</li>
+        <li>書き方がわからない場合はフォーカステキストをご提案します</li>
+      </ul>
+      <p class="individual-note">※ 登録後、LINEで「波動調整初回希望」とメッセージを送ってください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 安心して登録できる理由 -->
+<section style="padding: 80px 0; background: var(--bg-alt); border-top: 1px solid var(--border);">
+  <div class="container">
+    <p class="section-label">Privacy</p>
+    <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,26px); font-weight:300; letter-spacing:0.08em; margin-bottom:12px;">LINE登録が安心できる理由</h2>
+    <p style="font-size:13px; color:var(--text-mid); line-height:1.9; margin-bottom:40px;">「登録したら個人情報が全部バレるんじゃ…」と思っていませんか？<br>実際はそうではありません。</p>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2px;">
+
+      <div style="background: var(--bg); padding: 28px 26px; display:flex; gap:20px; align-items:flex-start;">
+        <span style="font-size:20px; flex-shrink:0; line-height:1;">👤</span>
+        <div>
+          <p style="font-size:14px; font-weight:500; letter-spacing:0.04em; margin-bottom:8px; color:var(--text);">名前は表示されません</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.85;">LINEの表示名が本名でなければ、運営側にはその名前しか見えません。お客様が自分から教えない限り、本名・住所・電話番号などの個人情報は一切わかりません。</p>
+        </div>
+      </div>
+
+      <div style="background: var(--bg); padding: 28px 26px; display:flex; gap:20px; align-items:flex-start;">
+        <span style="font-size:20px; flex-shrink:0; line-height:1;">🔔</span>
+        <div>
+          <p style="font-size:14px; font-weight:500; letter-spacing:0.04em; margin-bottom:8px; color:var(--text);">登録しても通知は届きません</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.85;">登録しただけでは運営側には何も通知されません。お客様がメッセージを送って初めてやりとりが始まります。「とりあえず登録だけ」で問題ありません。</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.85; margin-top:10px;">なお、タイムウェーバー8からのキャンペーンやお知らせの配信は月3〜4回程度です。大量に届くことはありません。</p>
+        </div>
+      </div>
+
+      <div style="background: var(--bg); padding: 28px 26px; display:flex; gap:20px; align-items:flex-start;">
+        <span style="font-size:20px; flex-shrink:0; line-height:1;">✉️</span>
+        <div>
+          <p style="font-size:14px; font-weight:500; letter-spacing:0.04em; margin-bottom:8px; color:var(--text);">名乗らなくてもOK、なんでも気軽に送ってください</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.85;">お問い合わせの際はお名前など名乗っていただく必要はありません。気になることがあればなんでもメッセージしてください。セッションのお申込みが決まった時点で、必要な情報をご案内します。</p>
+        </div>
+      </div>
+
+      <div style="background: var(--bg); padding: 28px 26px; display:flex; gap:20px; align-items:flex-start;">
+        <span style="font-size:20px; flex-shrink:0; line-height:1;">💬</span>
+        <div>
+          <p style="font-size:14px; font-weight:500; letter-spacing:0.04em; margin-bottom:8px; color:var(--text);">やりとりはすべて自分でコントロールできる</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.85;">既読・未読もお客様側から確認できるので、返信があったかどうかが一目でわかります。もし配信が不要になればブロックするだけで完了。解除の連絡も不要です。</p>
+        </div>
+      </div>
+
+      <div style="background: var(--bg); padding: 28px 26px; display:flex; gap:20px; align-items:flex-start;">
+        <span style="font-size:20px; flex-shrink:0; line-height:1;">🛡</span>
+        <div>
+          <p style="font-size:14px; font-weight:500; letter-spacing:0.04em; margin-bottom:8px; color:var(--text);">セッションに必要な情報は最小限です</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.85;">セッションお申込みの際にお伺いするのは、お名前・生年月日・お住まいの地域（都道府県のみ）・お写真の4点のみです。住所・電話番号などはお聞きしません。<br><span style="font-size:11px; color:var(--text-light);">※商品の発送など別途対応が必要な場合はこの限りではありません。</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- こんな方に -->
+<section class="line-for">
+  <div class="container">
+    <p class="section-label">For You</p>
+    <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,26px); font-weight:300; letter-spacing:0.08em; margin-bottom:32px;">こんな方におすすめ</h2>
+    <div class="for-grid">
+      <div class="for-item">最近うまくいかないことが続いている</div>
+      <div class="for-item">心の重さや停滞感がある</div>
+      <div class="for-item">願望を前に進めたい</div>
+      <div class="for-item">現実の流れを整えたい</div>
+      <div class="for-item">タイムウェーバーを気軽に試したい</div>
+      <div class="for-item">まずは無料で体験してみたい</div>
+    </div>
+  </div>
+</section>
+
+<!-- 最終CTA -->
+<section class="line-final-cta">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2>まずは無料で<br>"毎日調整"を受け取ってみてください</h2>
+    <p class="final-sub">LINE登録するだけで、毎日エネルギーが届きます。</p>
+    <a href="https://lin.ee/ujAR0Un" target="_blank" rel="noopener" class="btn-line-register">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 4.86.5 10.24c0 4.75 4.22 8.72 9.93 9.6.39.08.91.26 1.05.59.12.3.08.78.04 1.08l-.17 1.01c-.05.3-.24 1.18 1.03.64s6.86-4.04 9.36-6.91A8.54 8.54 0 0 0 23.5 10.24C23.5 4.86 18.35.5 12 .5z"/></svg>
+      無料で公式LINEに登録する
+    </a>
+    <span class="final-note">初回個別調整は希望者のみ（2,500円）</span>
+    <p style="font-size:11px; color:var(--text-light); margin-top:24px; line-height:1.8;">※ 医療行為ではなく、意識とエネルギーの調和を目的としています。</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">タイムウェーバー8</a>
+    <nav class="footer-nav">
+      <a href="about.html">タイムウェーバーとは</a>
+      <a href="healy.html">ヒーリーとは</a>
+      <a href="session.html">セッション</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="profile.html">プロフィール</a>
+      <a href="blog/">ブログ</a>
+      <a href="qa.html">よくある質問</a>
+      <a href="power.html">パワースポット</a>
+      
+    </nav>
+    <div class="footer-sns">
+      <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.56 0H2.44A2.44 2.44 0 0 0 0 2.44v19.12A2.44 2.44 0 0 0 2.44 24h19.12A2.44 2.44 0 0 0 24 21.56V2.44A2.44 2.44 0 0 0 21.56 0zm-4.1 16.12a.63.63 0 0 1-.62.52h-1.26a.63.63 0 0 1-.62-.52l-.42-2.62H9.46l-.42 2.62a.63.63 0 0 1-.62.52H7.16a.63.63 0 0 1-.62-.72l2-10.74a.63.63 0 0 1 .62-.52h5.68a.63.63 0 0 1 .62.52l2 10.74a.6.6 0 0 1 0 .2zm-5.5-8.74-.9 4.74h1.88l-.98-4.74z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.13-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.55A3.02 3.02 0 0 0 .5 6.19 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.13 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.37-.55a3.02 3.02 0 0 0 2.13-2.14A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      </a>
+      <a href="line.html" aria-label="LINE公式">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 4.86.5 10.24c0 4.75 4.22 8.72 9.93 9.6.39.08.91.26 1.05.59.12.3.08.78.04 1.08l-.17 1.01c-.05.3-.24 1.18 1.03.64s6.86-4.04 9.36-6.91A8.54 8.54 0 0 0 23.5 10.24C23.5 4.86 18.35.5 12 .5zM7.64 13.15H5.57a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 1.14 0v3.05h1.5a.57.57 0 0 1 0 1.14zm2.06-.57a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 1.14 0zm4.69 0a.57.57 0 0 1-.57.57h-.03a.57.57 0 0 1-.46-.23l-1.96-2.67v2.33a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 .57-.57h.04c.18 0 .35.09.46.23l1.96 2.67V8.96a.57.57 0 0 1 1.14 0v3.62zm3.07-2.33a.57.57 0 0 1 0 1.14h-1.5v.62h1.5a.57.57 0 0 1 0 1.14H15.4a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 .57-.57h2.06a.57.57 0 0 1 0 1.14h-1.5v.72z"/></svg>
+      </a>
+    </div>
+    <div class="footer-legal">
+      <a href="pp.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+        <a href="tokusho.html">特定商取引法に基づく表記</a>
+    </div>
+    <p class="copyright">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
   </div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

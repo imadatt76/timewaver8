@@ -215,17 +215,29 @@
 
     /* コースグループ（カテゴリ見出し） */
     .course-group {
-      margin-bottom: 56px;
+      margin-bottom: 64px;
     }
 
     .course-group-label {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      color: var(--text-light);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--text-mid);
+      font-weight: 500;
       margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      border-left: 3px solid var(--border);
+      background: var(--bg-alt);
+      display: block;
     }
+
+    /* グループカラーシステム */
+    .course-group--introductory .course-group-label { border-left-color: #b08848; color: #7a5a28; }
+    .course-group--core        .course-group-label { border-left-color: #b08848; color: #7a5a28; }
+    .course-group--specialty   .course-group-label { border-left-color: #4a7a6b; color: #2e5a4e; }
+    .course-group--message     .course-group-label { border-left-color: #8a7050; color: #5a4830; }
+    .course-group--reading     .course-group-label { border-left-color: #6b5f8a; color: #3e3460; }
+    .course-group--energy      .course-group-label { border-left-color: #8a5f5f; color: #5a3030; }
+    .course-group--option      .course-group-label { border-left-color: #5f6b7a; color: #384050; }
 
     /* コースカード */
     .course-grid {
@@ -238,6 +250,27 @@
     .course-card {
       background: var(--bg-alt);
       padding: 28px 26px;
+      border-left: 2px solid transparent;
+    }
+
+    /* カードの左アクセント */
+    .course-group--introductory .course-card { border-left-color: rgba(176,136,72,0.35); }
+    .course-group--core        .course-card { border-left-color: rgba(176,136,72,0.45); }
+    .course-group--specialty   .course-card { border-left-color: rgba(74,122,107,0.4); }
+    .course-group--message     .course-card { border-left-color: rgba(138,112,80,0.4); }
+    .course-group--reading     .course-card { border-left-color: rgba(107,95,138,0.4); }
+    .course-group--energy      .course-card { border-left-color: rgba(138,95,95,0.4); }
+    .course-group--option      .course-card { border-left-color: rgba(95,107,122,0.4); }
+
+    /* グループ間の背景切り替え */
+    .course-group--message,
+    .course-group--reading,
+    .course-group--option {
+      padding: 40px 0;
+      margin: 0 -24px 0;
+      padding-left: 24px;
+      padding-right: 24px;
+      background: rgba(46,44,42,0.03);
     }
 
     .course-card-header {
@@ -365,10 +398,21 @@
     }
 
     .zoom-card .zoom-time {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      color: var(--text-light);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--text-mid);
       margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .zoom-card .zoom-time span {
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-right: 4px;
+      line-height: 1;
+      vertical-align: baseline;
     }
 
     .zoom-card .zoom-name {
@@ -682,7 +726,116 @@
     <!-- 割引案内 -->
     <div class="discount-notice">
       <strong>波動調整中の方割引について</strong><br>
-      波動調整コース（月次・サブスク）の受講中・利用期間中の方は、対象コースが割引価格でご利用いただけます。各コースに「波動調整中の方」の料金を記載しています。
+      波動調整コース（月次・サブスク）の受講中・利用期間中の方は、対象コースが割引価格でご利用いただけます。各コースに「波動調整中の方」の料金を記載しています。正確な料金はお申し込みの際にご確認ください。
+    </div>
+
+    <!-- 分析・調整・レポートについて -->
+    <div style="margin-bottom: 56px;">
+      <p class="section-label">About Report</p>
+      <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,22px); font-weight:300; letter-spacing:0.08em; margin-bottom: 32px;">分析・調整・レポートについて</h2>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2px;">
+
+        <div style="background: var(--bg-alt); padding: 28px 26px;">
+          <p style="font-size:11px; letter-spacing:0.18em; color:var(--text-light); margin-bottom:10px;">REPORT</p>
+          <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:14px;">レポートの形式</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">LINEにてテキスト形式でお届けします。オーラ調整や一部セッションでは、調整結果の画像もあわせてお送りします。</p>
+          <p style="font-size:13px; color:var(--text-mid); line-height:1.9; margin-top:10px;">レポートには生成AI（ChatGPT）を一部導入しています。私の解釈をAIに学習させた上で出力したもので、内容は私が確認・監修しています。</p>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 28px 26px;">
+          <p style="font-size:11px; letter-spacing:0.18em; color:var(--text-light); margin-bottom:10px;">TIMELINE</p>
+          <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:14px;">お届けまでの期間・調整について</p>
+          <ul style="list-style:none; font-size:13px; color:var(--text-mid); line-height:2;">
+            <li style="display:flex; gap:8px; padding: 10px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text-light); flex-shrink:0;">–</span>レポートのお届けまで：お申し込みから3〜7日程度</li>
+            <li style="display:flex; gap:8px; padding: 10px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text-light); flex-shrink:0;">–</span>調整期間：1ヶ月（セッション内容・オプションにより異なります）</li>
+            <li style="display:flex; gap:8px; padding: 10px 0;"><span style="color:var(--text-light); flex-shrink:0;">–</span>調整頻度：1日1回程度のプログラムで継続調整します</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== セッションの選び方 ===== -->
+    <div style="margin-bottom: 56px;">
+      <p class="section-label">How to Choose</p>
+      <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,22px); font-weight:300; letter-spacing:0.08em; margin-bottom: 8px;">セッションの選び方</h2>
+      <p style="font-size:13px; color:var(--text-mid); line-height:1.9; margin-bottom: 32px;">「どれを選べばいいかわからない」という方は、こちらを参考にしてみてください。</p>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2px; margin-bottom: 32px;">
+
+        <div style="background: var(--bg-alt); padding: 24px 26px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="flex-shrink:0; width: 40px; text-align:center;">
+            <p style="font-size:10px; letter-spacing:0.15em; color:var(--text-light); margin-bottom:4px;">TYPE</p>
+            <p style="font-family: var(--font-serif); font-size:18px; font-weight:300; color:var(--accent-gold);">01</p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:8px;">目標や願望がはっきりしている</p>
+            <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">やりたいことや叶えたいことが明確な方は、<strong>波動調整コース</strong>がおすすめです。願望に直接コミットして、エネルギーを集中して整えます。</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 24px 26px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="flex-shrink:0; width: 40px; text-align:center;">
+            <p style="font-size:10px; letter-spacing:0.15em; color:var(--text-light); margin-bottom:4px;">TYPE</p>
+            <p style="font-family: var(--font-serif); font-size:18px; font-weight:300; color:var(--accent-gold);">02</p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:8px;">悩みが多く、何から始めればいいかわからない</p>
+            <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">「何をしたいのかよくわからない」「迷っている」という方は、<strong>1年後のメッセージ</strong>が向いています。タイムウェーバーが今のあなたに必要なことを引き出してくれます。</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 24px 26px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="flex-shrink:0; width: 40px; text-align:center;">
+            <p style="font-size:10px; letter-spacing:0.15em; color:var(--text-light); margin-bottom:4px;">TYPE</p>
+            <p style="font-family: var(--font-serif); font-size:18px; font-weight:300; color:var(--accent-gold);">03</p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:8px;">気軽に、楽しみながら試してみたい</p>
+            <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">難しく考えずにエンタメ感覚で体験したい方には、<strong>おみくじ系セッション</strong>がぴったりです。「運」や「意識」の現在地を読み解きます。</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 24px 26px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="flex-shrink:0; width: 40px; text-align:center;">
+            <p style="font-size:10px; letter-spacing:0.15em; color:var(--text-light); margin-bottom:4px;">TYPE</p>
+            <p style="font-family: var(--font-serif); font-size:18px; font-weight:300; color:var(--accent-gold);">04</p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:8px;">人間関係や先祖・ルーツとの関係が気になる</p>
+            <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">「家族や親との関係がずっと引っかかっている」「先祖のことが気になる」という方は、<strong>先祖エネルギー最適化コース</strong>へ。受け継いだエネルギーを整えます。</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 24px 26px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="flex-shrink:0; width: 40px; text-align:center;">
+            <p style="font-size:10px; letter-spacing:0.15em; color:var(--text-light); margin-bottom:4px;">TYPE</p>
+            <p style="font-family: var(--font-serif); font-size:18px; font-weight:300; color:var(--accent-gold);">05</p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:8px;">心身・環境ごと、自分をトータルで整えたい</p>
+            <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">内側（思考・感情・潜在意識）も外側（身体・空間・環境）も、まとめて整えたい方に。<strong>内側と外側を整えるセッション</strong>や<strong>自分自身をパワースポットにするセッション</strong>が向いています。</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 24px 26px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="flex-shrink:0; width: 40px; text-align:center;">
+            <p style="font-size:10px; letter-spacing:0.15em; color:var(--text-light); margin-bottom:4px;">TYPE</p>
+            <p style="font-family: var(--font-serif); font-size:18px; font-weight:300; color:var(--accent-gold);">06</p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:8px;">なんとなく重い・スッキリしない・引っかかりがある</p>
+            <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">原因はよくわからないけど、ずっとモヤモヤしている感じがある方は、自分を取り巻くエネルギーを整えるアプローチが合っているかもしれません。<strong>カルマの最適化・生霊と憑依の浄化</strong>のコースをご覧ください。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 直感で選ぶ -->
+      <div style="background: var(--bg); border: 1px solid var(--border); padding: 28px 26px;">
+        <p style="font-family: var(--font-serif); font-size:15px; font-weight:300; margin-bottom:12px;">一番惹かれるものを、素直に選んでみてください。</p>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.9;">タイプで選べなくてもかまいません。なぜかわからないけど気になる、最初に目が止まった、内容が頭から離れない——そういうフィーリングは、あなたの内側が「今ここに注目して」と伝えているサインかもしれません。<br>理由がなくても、直感で選んだセッションから始めてみるのもひとつの方法です。</p>
+      </div>
     </div>
 
     <!-- ===== LINEセッション ===== -->
@@ -691,7 +844,7 @@
       <h2 style="font-family: var(--font-serif); font-size: clamp(18px,2.5vw,24px); font-weight:300; letter-spacing:0.08em; margin-bottom: 40px;">LINE セッション</h2>
 
       <!-- 入門コース -->
-      <div class="course-group">
+      <div class="course-group course-group--introductory">
         <p class="course-group-label">INTRODUCTORY — 入門・お試し</p>
         <div class="course-grid">
 
@@ -748,7 +901,7 @@
       </div>
 
       <!-- 波動調整コース -->
-      <div class="course-group">
+      <div class="course-group course-group--core">
         <p class="course-group-label">CORE — 波動調整コース</p>
         <div class="course-grid">
 
@@ -822,7 +975,7 @@
       </div>
 
       <!-- 専門コース -->
-      <div class="course-group">
+      <div class="course-group course-group--specialty">
         <p class="course-group-label">SPECIALTY — 専門コース</p>
         <div class="course-grid">
 
@@ -832,6 +985,7 @@
               <p class="course-name">タイムウェーバー<br>未来分析コース</p>
               <div class="course-price-block">
                 <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
               </div>
             </div>
             <div class="course-divider"></div>
@@ -842,30 +996,13 @@
             <p class="course-desc">リストで阻害エネルギーの強弱を分析し、タイムラインで願望がいつ達成されるかを読みます。「いつ頃叶うのか知りたい」という方に。</p>
           </div>
 
-          <!-- お金エネルギー -->
-          <div class="course-card">
-            <div class="course-card-header">
-              <p class="course-name">お金エネルギー<br>最適化コース</p>
-              <div class="course-price-block">
-                <span class="course-price">8,000<span class="course-price-unit">円</span></span>
-                <span class="course-price-discount">波動調整中 5,000円</span>
-              </div>
-            </div>
-            <div class="course-divider"></div>
-            <ul class="course-meta">
-              <li>エナジーポイント分析・調整</li>
-              <li>調整期間：1ヶ月</li>
-            </ul>
-            <p class="course-desc">自己価値・金銭を生む能力・感情・信念など、お金に関わる11のエネルギーバランスを整えます。お金の流れが詰まっていると感じる方に。</p>
-          </div>
-
           <!-- 家・建物 -->
           <div class="course-card">
             <div class="course-card-header">
               <p class="course-name">家・建物の<br>エネルギー最適化コース</p>
               <div class="course-price-block">
-                <span class="course-price">8,000<span class="course-price-unit">円</span></span>
-                <span class="course-price-discount">波動調整中 5,000円</span>
+                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 3,000円</span>
               </div>
             </div>
             <div class="course-divider"></div>
@@ -898,8 +1035,8 @@
             <div class="course-card-header">
               <p class="course-name">サウンドセラピー</p>
               <div class="course-price-block">
-                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
-                <span class="course-price-discount">波動調整中 3,000円</span>
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
               </div>
             </div>
             <div class="course-divider"></div>
@@ -915,8 +1052,8 @@
             <div class="course-card-header">
               <p class="course-name">ゲノウェーブ</p>
               <div class="course-price-block">
-                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
-                <span class="course-price-discount">波動調整中 3,000円</span>
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
               </div>
             </div>
             <div class="course-divider"></div>
@@ -939,7 +1076,7 @@
             <div class="course-divider"></div>
             <ul class="course-meta">
               <li>53,559個のDBから180種類以上を調整</li>
-              <li>4時間に1回の調整（1日5回以上）</li>
+              <li style="color: #c0392b; font-weight: 500;"><strong>4時間に1回の調整（1日5回以上）</strong></li>
               <li>調整期間：1ヶ月</li>
             </ul>
             <p class="course-desc">「私はハイヤーセルフに従って自分らしく自由に自分を愛して楽しく生きる」というフォーカステキストで、集中的に調整を行います。通常より高頻度（1日5回以上）の調整で、より深い気づきと意識の成長をサポートします。</p>
@@ -947,6 +1084,248 @@
 
         </div>
       </div>
+
+      <!-- お任せセッション -->
+      <div class="course-group course-group--message">
+        <p class="course-group-label">MESSAGE — タイムウェーバーお任せセッション</p>
+        <div class="course-grid">
+
+          <!-- 1年後の自分からのメッセージ -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">1年後の自分から<br>のメッセージ</p>
+              <div class="course-price-block" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div style="display:flex; align-items:baseline; gap:8px;">
+                  <span class="course-price">2,000<span class="course-price-unit">円</span></span>
+                  <span style="font-size:11px; color:var(--text-light);">分析のみ</span>
+                </div>
+                <div style="display:flex; align-items:baseline; gap:8px;">
+                  <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+                  <span style="font-size:11px; color:var(--text-light);">分析＋調整</span>
+                </div>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>分析のみ：メッセージレポートのお渡しのみ（予言の書風）</li>
+              <li>分析＋調整：フォーカステキストで調整・オーラ調整・関連DB報告含む</li>
+              <li>調整あり：調整期間 1ヶ月</li>
+            </ul>
+            <p class="course-desc">「1年後の自分」という視点から、今のあなたに必要な方向性を読み解くセッションです。深層背景・カルマ・感情パターン・人間関係・環境など複数のテーマを統合し、予言の書のような形でメッセージをお届けします。調整ありの場合はそこから3つのテーマでフォーカステキストを組み、今月の行動指針まで具体的に落とし込みます。</p>
+          </div>
+
+          <!-- 10年後の自分からのメッセージ -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">10年後の自分から<br>のメッセージ</p>
+              <div class="course-price-block" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div style="display:flex; align-items:baseline; gap:8px;">
+                  <span class="course-price">2,000<span class="course-price-unit">円</span></span>
+                  <span style="font-size:11px; color:var(--text-light);">分析のみ</span>
+                </div>
+                <div style="display:flex; align-items:baseline; gap:8px;">
+                  <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+                  <span style="font-size:11px; color:var(--text-light);">分析＋調整</span>
+                </div>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>分析のみ：メッセージレポートのお渡しのみ（予言の書風）</li>
+              <li>分析＋調整：フォーカステキストで調整・オーラ調整・関連DB報告含む</li>
+              <li>調整あり：調整期間 1ヶ月</li>
+            </ul>
+            <p class="course-desc">「10年後の自分」という長い時間軸から、今のあなたへのメッセージを読み解くセッションです。大きな人生テーマや方向性を整理したい方に。調整ありの場合はメッセージをもとにフォーカステキストを組み、エネルギーを整えていきます。</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- リーディングセッション -->
+      <div class="course-group course-group--reading">
+        <p class="course-group-label">READING — リーディングセッション</p>
+        <div class="course-grid">
+
+          <!-- おみくじ -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">タイムウェーバー<br>おみくじ</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>イーチン（易経）データベース使用</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">イーチン（易経）のデータベースを使い、「運」の現在地を分析・調整します。今の自分がどのような運のフェーズにいるかを読み解きます。</p>
+          </div>
+
+          <!-- おみくじ＆五行 -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">タイムウェーバー<br>おみくじ＆五行</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>イーチン＋五行データベース使用</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">イーチンで「運」の現在地を、五行で「エネルギー」の現在地を多角的に分析・調整します。2つのデータベースを組み合わせることで、より立体的な状態把握が可能です。</p>
+          </div>
+
+          <!-- おみくじ＆タロット -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">タイムウェーバー<br>おみくじ＆タロット</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>イーチン＋タロットデータベース使用</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">イーチンで「運」の現在地を、タロットで「意識・マインド」の現在地を分析・調整します。外側の流れと内側の状態を同時に読み解きます。</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- エネルギーセッション -->
+      <div class="course-group course-group--energy">
+        <p class="course-group-label">ENERGY — エネルギーセッション</p>
+        <div class="course-grid">
+
+          <!-- お金の循環を整えるセッション -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">お金の循環を<br>整えるセッション</p>
+              <div class="course-price-block">
+                <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>自分・財布・ゲノウェーブの3軸で分析・調整</li>
+              <li>オーラ調整含む</li>
+              <li style="color: #c0392b; font-weight: 500;">調整期間：<strong>2ヶ月</strong></li>
+              <li>報告：ゲノウェーブ画像・オーラ調整画像・関連DB</li>
+            </ul>
+            <p class="course-desc">自分自身・財布・自分と財布の関係性（ゲノウェーブ）の3方向からお金のエネルギーを整えます。お金を使うときの不安や「減る」という思い込み、受け取ることへの抵抗感など、内側のブロックにアプローチしながら、お金が出入りしやすい循環の流れをつくります。</p>
+          </div>
+
+          <!-- 内側と外側を整えるセッション -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">内側と外側を<br>整えるセッション</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>専用データベース使用</li>
+              <li>オーラ調整含む</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">内（感情・思考・潜在意識）と外（身体・環境・物質）の両面を同時に整えます。思考のクセや感情の滞りを解放しながら、エネルギーを整える色の提案や空間最適化まで、心身と環境をトータルにサポートします。</p>
+          </div>
+
+          <!-- カルマの最適化コース -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">カルマの<br>最適化コース</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>前世・先祖・環境の3種のカルマを分析</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">カルマを「浄化するもの」ではなく、魂の成長へのメッセージとして受け取るプログラムです。前世・先祖・環境から受け継いだエネルギーを、あなたの才能や未来につなげます。エネルギーバランスの偏りが大きいカルマをご報告します。</p>
+          </div>
+
+          <!-- 生霊と憑依の浄化コース -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">生霊と憑依の<br>浄化コース</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>外部エネルギーの浄化</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">生霊（生きている人からの強い思念・執着）や憑依（霊・環境からの影響）など、外部からのエネルギーの影響を浄化します。カルマとは異なり自分以外からくるエネルギーのため、「最適化」ではなく「浄化」の形でアプローチします。</p>
+          </div>
+
+          <!-- 自分自身をパワースポットにするセッション -->
+          <div class="course-card">
+            <div class="course-card-header">
+              <p class="course-name">自分自身をパワースポット<br>にするセッション</p>
+              <div class="course-price-block">
+                <span class="course-price">3,000<span class="course-price-unit">円</span></span>
+                <span class="course-price-discount">波動調整中 2,000円</span>
+              </div>
+            </div>
+            <div class="course-divider"></div>
+            <ul class="course-meta">
+              <li>専用フォーカステキストで調整</li>
+              <li>調整期間：1ヶ月</li>
+            </ul>
+            <p class="course-desc">「私は今自分がいる場所から純粋なエネルギーを受け取り、光として世界へ還元する存在になりました」というフォーカステキストで調整します。自分がいるだけで周囲のエネルギーが整い、訪れる場所が味方してくれる——「歩くパワースポット化」をテーマにしたセッションです。</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- オプション -->
+    <div id="levelwave-option" class="course-group course-group--option" style="margin-bottom: 56px;">
+      <p class="course-group-label">OPTION — オプション</p>
+      <div class="course-grid">
+
+        <div class="course-card" style="background: #f5e8e6;">
+          <div class="course-card-header">
+            <p class="course-name">レベルウェーブ<br>共鳴遮断</p>
+            <div class="course-price-block">
+              <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+            </div>
+          </div>
+          <div class="course-divider"></div>
+          <p class="course-desc">不要なエネルギーとの共鳴を遮断し、ネガティブなパターンや外部からの影響を取り除きます。</p>
+        </div>
+
+        <div class="course-card" style="background: #f5e8e6;">
+          <div class="course-card-header">
+            <p class="course-name">レベルウェーブ<br>共鳴増幅</p>
+            <div class="course-price-block">
+              <span class="course-price">5,000<span class="course-price-unit">円</span></span>
+            </div>
+          </div>
+          <div class="course-divider"></div>
+          <p class="course-desc">望ましいエネルギーや良い状態をより強く定着させます。受け取りたい流れを後押ししたい方に。</p>
+        </div>
+
+      </div>
+      <p style="margin-top: 16px; font-size: 12px; color: var(--text-light); line-height: 1.8;">※ レベルウェーブのみのお申し込みは各 8,000円。<a href="about-deep.html#levelwave" style="color: var(--text-mid); border-bottom: 1px solid var(--border);">レベルウェーブとは？</a></p>
     </div>
 
     <!-- ===== Zoomセッション ===== -->
@@ -959,7 +1338,7 @@
       <div class="zoom-grid">
 
         <div class="zoom-card">
-          <p class="zoom-time">20 MIN</p>
+          <p class="zoom-time"><span>20</span>分</p>
           <p class="zoom-name">お試しコース</p>
           <p class="zoom-price">6,000<span class="zoom-price-unit">円</span></p>
           <div class="course-divider"></div>
@@ -971,7 +1350,7 @@
         </div>
 
         <div class="zoom-card">
-          <p class="zoom-time">50 MIN</p>
+          <p class="zoom-time"><span>50</span>分</p>
           <p class="zoom-name">スタンダードコース</p>
           <p class="zoom-price">13,000<span class="zoom-price-unit">円</span></p>
           <div class="course-divider"></div>
@@ -984,7 +1363,7 @@
         </div>
 
         <div class="zoom-card">
-          <p class="zoom-time">80 MIN</p>
+          <p class="zoom-time"><span>80</span>分</p>
           <p class="zoom-name">プレミアムコース</p>
           <p class="zoom-price">19,000<span class="zoom-price-unit">円</span></p>
           <div class="course-divider"></div>
@@ -1021,9 +1400,29 @@
         <h2>ヒーリーセッション</h2>
       </div>
     </div>
-    <div class="healy-placeholder">
-      <h3>準備中</h3>
-      <p>ヒーリーのセッションメニューは近日公開予定です。<br>詳細はLINEよりお問い合わせください。</p>
+    <div style="margin-bottom: 16px;">
+      <p style="font-size: 13px; color: var(--text-mid); line-height: 1.9; margin-bottom: 32px;">ヒーリーのブルーアプリを使い、情報フィールドを分析・調整します。タイムウェーバーのような月次継続調整ではなく、<strong>1回完結型</strong>のセッションです。結果はPDFレポートでお届けします。</p>
+    </div>
+
+    <div class="course-grid">
+
+      <div class="course-card" style="background: #fff;">
+        <div class="course-card-header">
+          <p class="course-name">ヒーリー<br>オーラ＆コーチング分析</p>
+          <div class="course-price-block">
+            <span class="course-price">1,500<span class="course-price-unit">円</span></span>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <ul class="course-meta">
+          <li>オーラ調整＋コーチング調整（情報フィールド）</li>
+          <li style="color: #c0392b; font-weight: 500;"><strong>1回完結（継続調整なし）</strong></li>
+          <li>報告：オーラ・コーチング それぞれPDFでお届け</li>
+          <li>コーチングレポートは予言の書風にまとめてお渡し</li>
+        </ul>
+        <p class="course-desc">ヒーリーのブルーアプリを使って、オーラの状態と現在のエネルギーテーマをコーチング機能で分析・調整します。コーチングの分析結果は予言の書のような形でレポートにまとめてお届けします。タイムウェーバーとは異なり、1回のセッションで完結します。</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1044,10 +1443,6 @@
             <strong>LINEからのお申込み（おすすめ）</strong>
             <a href="line.html">公式LINE</a>に登録後、「セッション希望」とメッセージをお送りください。ご希望のコースや日程を確認してご案内します。
           </li>
-          <li>
-            <strong>メールからのお申込み</strong>
-            お問い合わせフォームよりご連絡ください。迷惑メールフォルダへの振り分けにご注意ください。キャリアメールの場合はドメイン指定（@i-am-happy-with-my-life.com）の設定をお願いします。
-          </li>
         </ul>
       </div>
 
@@ -1067,7 +1462,25 @@
     </div>
 
     <div class="apply-notice">
-      写真をお送りいただく場合は、容量にご注意の上お送りください。メール経由でのお写真送付は容量の関係でうまく届かない場合があります。
+      写真をお送りいただく場合は、LINEよりお送りください。容量が大きい場合はファイル形式をご確認の上お送りください。
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA セクション -->
+<section class="section-cta fade-in">
+  <div class="container">
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Contact</p>
+    <h2>まずはLINEで<br>ご相談ください</h2>
+    <p>お問い合わせ・セッションのご相談はLINEのみで受け付けています。<br>メールでのお問い合わせは行っておりません。</p>
+    <div class="cta-btn-group">
+      <a href="line.html" class="btn-primary btn-line">LINE で相談する</a>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-secondary">まず ChatGPT に聞いてみる</a>
     </div>
   </div>
 </section>
@@ -1085,7 +1498,7 @@
       <a href="blog/">ブログ</a>
       <a href="qa.html">よくある質問</a>
       <a href="power.html">パワースポット</a>
-      <a href="seminar.html">セミナールーム</a>
+      
     </nav>
     <div class="footer-sns">
       <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
@@ -1100,9 +1513,10 @@
     </div>
     <div class="footer-legal">
       <a href="pp.html">プライバシーポリシー</a>
-      <a href="terms.html">特定商取引法に基づく表記</a>
+      <a href="terms.html">利用規約</a>
+        <a href="tokusho.html">特定商取引法に基づく表記</a>
     </div>
-    <p class="copyright">&copy; タイムウェーバー8 今田</p>
+    <p class="copyright">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
   </div>
 </footer>
 

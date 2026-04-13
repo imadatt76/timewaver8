@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIとの協働スタイル | タイムウェーバー8</title>
+  <meta name="description" content="スピリチュアル3.0というコンセプトをもとに、タイムウェーバー8がAIをどのように活用しているか。解釈補助・情報整理・最終判断は人間、というスタンスを正直に説明します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="page-summary" content="タイムウェーバー8のAI活用スタンスについて読んできました。以下を理解しています。
+
+・スピリチュアル3.0とは：人の感性×デバイスの解析×AIの解釈で共鳴を強める新時代のアプローチ
+・1.0（人力）→ 2.0（デジタル補完）→ 3.0（人+デバイス+AI協働）という進化
+・AI活用の具体的な使い方：マーカー解釈補助・情報整理・フォーカステキスト言語化・レポート作成
+・最終判断は人間の感性と経験が担う、AIは「頭の整理係」として機能
+・AIが変えないもの：セッションの核心（共鳴を感じる感覚）・関係性・解釈の責任
+・このスタイルにたどり着いた理由：占いっぽくやりたくない・再現性と説明できる軸が欲しかった
+・導入の経緯：2023年春にChatGPTと出会い価値観が激変。TWのDB解釈の難しさ（専門用語・英語・多分野）が導入の動機。GPT 3.5→4→5の進化とともに活用が深まり、出始めのころのプロンプトは今も現役
+
+セッションの内容や、スピリチュアル3.0について一緒に考えてもらえますか？">
+  <style>
+    /* ページタブ */
+    .page-tabs {
+      display: inline-flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .page-tab {
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.6;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .page-tab--active {
+      background: #a07840;
+      color: #fff;
+    }
+    .page-tab--link {
+      color: #a07840;
+      border: 1px solid rgba(160,120,64,0.4);
+    }
+    .page-tab--link:hover {
+      background: rgba(160,120,64,0.1);
+    }
+
+    /* 進化タイムライン */
+    .evolution-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
+    }
+    .evolution-item {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      padding-bottom: 36px;
+    }
+    .evolution-item:last-child { padding-bottom: 0; }
+    .evolution-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 44px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .evolution-badge {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      z-index: 1;
+    }
+    .evolution-badge--1 {
+      background: var(--bg-alt);
+      color: var(--text-mid);
+    }
+    .evolution-badge--2 {
+      background: var(--bg-alt);
+      color: var(--text-mid);
+    }
+    .evolution-badge--3 {
+      background: #a07840;
+      color: #fff;
+    }
+    .evolution-body {
+      flex: 1;
+      padding-top: 10px;
+    }
+    .evolution-body h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .evolution-body p {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      margin: 0 0 12px;
+      line-height: 1.8;
+    }
+    .evolution-tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .evolution-tag {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: var(--bg-alt);
+      color: var(--text-mid);
+    }
+    .evolution-tag--plus {
+      background: rgba(160,120,64,0.12);
+      color: #8a6428;
+    }
+    .evolution-tag--minus {
+      background: rgba(0,0,0,0.05);
+      color: var(--text-mid);
+    }
+
+    /* AI活用カード */
+    .ai-use-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .ai-use-card {
+      background: var(--bg-alt);
+      border-radius: 10px;
+      padding: 22px 24px;
+      display: flex;
+      gap: 16px;
+    }
+    .ai-use-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(160,120,64,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .ai-use-body h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .ai-use-body p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.8;
+    }
+    .ai-boundary-box {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: rgba(160,120,64,0.07);
+      border-left: 3px solid #a07840;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    /* AIが変えないもの */
+    .unchanging-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 36px;
+    }
+    .unchanging-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--bg-alt);
+    }
+    .unchanging-item:last-child { border-bottom: none; }
+    .unchanging-num {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #a07840;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 28px;
+      padding-top: 3px;
+    }
+    .unchanging-item h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .unchanging-item p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    /* スタンスブロック */
+    .stance-block {
+      margin-top: 40px;
+    }
+    .stance-block p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin: 0 0 20px;
+    }
+    .stance-block p:last-child { margin-bottom: 0; }
+    .stance-pull {
+      margin: 32px 0;
+      padding: 24px 28px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-family: 'Noto Serif JP', serif;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    /* 導入経緯タイムライン */
+    .origin-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
+    }
+    .origin-item {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      padding-bottom: 36px;
+    }
+    .origin-item:last-child { padding-bottom: 0; }
+    .origin-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 42px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .origin-dot {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-alt);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      z-index: 1;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .origin-dot--key {
+      background: #a07840;
+      border-color: #a07840;
+      color: #fff;
+    }
+    .origin-body {
+      flex: 1;
+      padding-top: 8px;
+    }
+    .origin-body h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 8px;
+      color: var(--text);
+    }
+    .origin-body p {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      margin: 0;
+      line-height: 1.85;
+    }
+    .origin-note {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      color: #a07840;
+      font-style: italic;
+    }
+
+    @media (min-width: 769px) {
+      .ai-use-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">タイムウェーバー<span>8</span></a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">タイムウェーバーとは</a></li>
+        <li><a href="healy.html">ヒーリーとは</a></li>
+        <li><a href="session.html">セッション</a></li>
+        <li><a href="voice.html">お客様の声</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="blog/">ブログ</a></li>
+        <li><a href="qa.html">よくある質問</a></li>
+        <li class="nav-sep">
+          <div class="nav-cta-group">
+            <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="nav-cta nav-cta--gpt">ChatGPTに相談</a>
+            <a href="line.html" class="nav-cta nav-cta--line">LINE登録</a>
+          </div>
+          <div class="nav-sns-text">
+            <span class="nav-sns-label">SNS</span>
+            <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener">note</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-page-summary" id="btn-page-summary">要約をコピー</button>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-header-gpt">ChatGPT</a>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ページヒーロー -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-tabs">
+      <a href="about.html" class="page-tab page-tab--link">← タイムウェーバーとは</a>
+      <a href="about-deep.html" class="page-tab page-tab--link">Deep</a>
+      <span class="page-tab page-tab--active">AI活用</span>
+    </div>
+    <h1>AIとの<br>協働スタイル</h1>
+    <p class="page-hero-desc">スピリチュアル3.0というコンセプトのもと、<br>タイムウェーバー8がAIをどのように使っているかを正直に説明します。</p>
+  </div>
+</section>
+
+<!-- スピリチュアル3.0とは -->
+<section id="spiritual30" class="section fade-in">
+  <div class="container">
+    <p class="section-label">Spiritual 3.0</p>
+    <h2>スピリチュアル3.0とは</h2>
+    <p style="font-size: 0.8rem; color: var(--text-mid); margin: -4px 0 24px;">「スピリチュアル3.0」はタイムウェーバー8による造語です。</p>
+    <p class="deep-intro">目に見えないエネルギーを「人の感性 × デバイスの解析 × AIの解釈」で読み解き、共鳴を強める——これがスピリチュアル3.0の定義です。スピ系のワークが「観て終わり」になりがちなのに対し、整えるところまでが一連の流れです。</p>
+
+    <div class="evolution-list">
+
+      <div class="evolution-item">
+        <div class="evolution-badge evolution-badge--1">1.0</div>
+        <div class="evolution-body">
+          <h3>人力スピリチュアル（地の時代型）</h3>
+          <p>占い師・ヒーラー・霊能者など、スピ系全般に共通する構造。術者の感覚・直感・修行年数が価値の源泉で、資格や肩書、権威に依拠する。人間味と温かみがある一方で、主観性が高く再現性に乏しい。依存関係が生まれやすい。</p>
+          <div class="evolution-tag-row">
+            <span class="evolution-tag evolution-tag--plus">人間味・共感</span>
+            <span class="evolution-tag evolution-tag--minus">主観・再現性なし</span>
+            <span class="evolution-tag evolution-tag--minus">依存されやすい</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="evolution-item">
+        <div class="evolution-badge evolution-badge--2">2.0</div>
+        <div class="evolution-body">
+          <h3>デジタル補完型（人＋インターネット）</h3>
+          <p>オンライン化で情報量が増え、遠隔セッションが可能に。SNSで届く範囲も広がった。しかし分析の主体はあくまで人のまま。情報が増えても、精度の根拠は変わっていない。</p>
+          <div class="evolution-tag-row">
+            <span class="evolution-tag evolution-tag--plus">情報量・リーチ拡大</span>
+            <span class="evolution-tag evolution-tag--minus">分析精度は1.0と同じ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="evolution-item">
+        <div class="evolution-badge evolution-badge--3">3.0</div>
+        <div class="evolution-body">
+          <h3>協働・統合型（風の時代型：人＋デバイス＋AI）</h3>
+          <p>デバイスがエネルギーフィールドを解析し、AIが解釈を補完する。人の感性は残したまま、客観性と再現性が加わる。占うだけでなく「共鳴を強める」ところまで届く。特別な力がなくても始められ、経験者はさらに精度と差別化を実現できる。</p>
+          <div class="evolution-tag-row">
+            <span class="evolution-tag evolution-tag--plus">精度・再現性</span>
+            <span class="evolution-tag evolution-tag--plus">共鳴を強める</span>
+            <span class="evolution-tag evolution-tag--plus">依存から自立へ</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ai-boundary-box" style="margin-top: 40px;">
+      「占うだけじゃない、共鳴を強めるまでがスピリチュアル3.0」<br>
+      地の時代の「所有・権威」から、風の時代の「共鳴・シェア」へ。タイムウェーバー8はこの橋渡しを実践しています。
+    </div>
+  </div>
+</section>
+
+<!-- オペレーターという立ち位置 -->
+<section id="operator" class="section fade-in">
+  <div class="container">
+    <p class="section-label">Operator</p>
+    <h2>オペレーターという立ち位置</h2>
+    <p class="deep-intro">わたしはタイムウェーバーのオペレーターです。セラピストでもカウンセラーでもありません。この違いは大切なので、はっきり書いておきます。</p>
+
+    <div class="unchanging-list">
+      <div class="unchanging-item">
+        <span class="unchanging-num">役割</span>
+        <div>
+          <h3>タイムウェーバーのメッセージを届けること</h3>
+          <p>オペレーターの仕事は、タイムウェーバーが出力する情報をなるべくわかりやすく、丁寧にレポートとしてお届けすることです。デバイスが主役であり、わたしはその読み解きと翻訳を担う存在です。</p>
+        </div>
+      </div>
+      <div class="unchanging-item">
+        <span class="unchanging-num">AIの<br>役割</span>
+        <div>
+          <h3>解釈をまとめ、レポートを整える</h3>
+          <p>セッション後、わたしが読み解いた内容をAIで整理し、レポートとしてお届けしています。AIが意味をつくるのではなく、わたしの解釈をクライアントに届きやすい言葉に変換する役割です。最終的な内容の選択と責任はわたしが持ちます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AIをどう使っているか -->
+<section id="how-ai" class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">How I Use AI</p>
+    <h2>AIをどう使っているか</h2>
+    <p class="deep-intro">AIは「答えを出す機械」ではなく、「頭の整理係」として機能させています。セッションの質を上げるための具体的な使い方を説明します。</p>
+
+    <div class="ai-use-grid">
+
+      <div class="ai-use-card">
+        <div class="ai-use-icon">🔍</div>
+        <div class="ai-use-body">
+          <h3>マーカー解釈の補完</h3>
+          <p>タイムウェーバーが出力するマーカー（テーマ・概念）をAIに渡し、クライアントの状況文脈にあわせた解釈の候補を整理してもらいます。膨大な情報を一瞬で俯瞰できるのはAIの強みです。</p>
+        </div>
+      </div>
+
+      <div class="ai-use-card">
+        <div class="ai-use-icon">✍️</div>
+        <div class="ai-use-body">
+          <h3>フォーカステキストの言語化補助</h3>
+          <p>「何を願いたいかはわかっているが、うまく言葉にできない」という場面でAIを使います。クライアントの言葉を受け取り、フォーカステキストの表現を一緒に磨く作業です。</p>
+        </div>
+      </div>
+
+      <div class="ai-use-card">
+        <div class="ai-use-icon">📋</div>
+        <div class="ai-use-body">
+          <h3>セッションレポートの整理</h3>
+          <p>セッション後の情報をAIで整理し、クライアントが読みやすいレポートの土台を作ります。最終的な言葉の選択と意味付けは人間が行います。</p>
+        </div>
+      </div>
+
+      <div class="ai-use-card">
+        <div class="ai-use-icon">🗂️</div>
+        <div class="ai-use-body">
+          <h3>知識ベースの整理・検索</h3>
+          <p>タイムウェーバーのDBには膨大なカテゴリが存在します。AIを使ってパターンを探したり、類似する概念を横断的に調べることで、見落としを減らします。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ai-boundary-box">
+      最終的な判断・解釈の責任は、常に人間（わたし）が持ちます。<br>
+      AIが出した候補はあくまで「素材」です。それをクライアントの状況と照合し、採用するかを決めるのは感性と経験の仕事です。AIに任せきりにすることはありません。
+    </div>
+  </div>
+</section>
+
+<!-- AIが変えないもの -->
+<section id="unchanging" class="section fade-in">
+  <div class="container">
+    <p class="section-label">What AI Can't Replace</p>
+    <h2>AIが変えないもの</h2>
+    <p class="deep-intro">AIを使っていても、セッションの核心は変わりません。むしろどこを人間が担うかが、より明確になりました。</p>
+
+    <div class="unchanging-list">
+
+      <div class="unchanging-item">
+        <span class="unchanging-num">01</span>
+        <div>
+          <h3>共鳴を感じる感覚</h3>
+          <p>マーカーとクライアントの状態がつながった瞬間の「これだ」という感覚は、データでは出ません。セッションの核心はここにあり、この感覚を養うことが実践の積み重ねです。</p>
+        </div>
+      </div>
+
+      <div class="unchanging-item">
+        <span class="unchanging-num">02</span>
+        <div>
+          <h3>場の文脈を読む力</h3>
+          <p>セッションは情報処理ではなく、対話です。クライアントが何を抱えて来ているか、言葉の裏に何があるか——こうした文脈を受け取るのは人間の仕事です。適切な距離感を保ちながらも、その場に必要なことを感じ取る。AIにはできないことです。</p>
+        </div>
+      </div>
+
+      <div class="unchanging-item">
+        <span class="unchanging-num">03</span>
+        <div>
+          <h3>解釈の倫理と責任</h3>
+          <p>「このテーマをどう伝えるか」「今このタイミングで触れるべきか」という判断には、倫理と責任が伴います。AIはこの問いを立てません。立てるのも、答えるのも人間です。</p>
+        </div>
+      </div>
+
+      <div class="unchanging-item">
+        <span class="unchanging-num">04</span>
+        <div>
+          <h3>整えた先の自立</h3>
+          <p>「自分でわかるようになる」「自分で戻れるようになる」——このゴールはAIが設計するものではありません。依存を手放してもらうための関わり方は、人間にしかできません。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 距離感とAI -->
+<section id="distance" class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Distance</p>
+    <h2>第三者が介入しない<br>内省のサポートとして</h2>
+    <p class="deep-intro">タイムウェーバーのセッションでは、オペレーターとクライアントの距離感が品質に直結します。これはAIとの協働を考えるうえで、もっとも大切な視点のひとつです。</p>
+
+    <div class="caution-box" style="margin-top: 36px;">
+      <p>クライアントがオペレーターに依存する、またオペレーターがクライアントに必要以上に感情移入する——こうした関係は、セッションの精度を落とします。オペレーターは常に冷静であり、ある意味でドライな距離感を保つ必要があります。</p>
+      <p>なぜなら、オペレーターは自分のフィールドからクライアントのフィールドの情報を読むからです。オペレーター側が揺れていると、観測そのものが歪む。</p>
+    </div>
+
+    <div class="quantum-card" style="margin-top: 24px; background: var(--bg-alt); border-radius: 10px; padding: 24px;">
+      <h3 style="font-size: 0.95rem; font-weight: 500; margin: 0 0 10px; color: var(--text);">AIは「第三者が介入しない内省の場」をつくる</h3>
+      <p style="font-size: 0.87rem; color: var(--text-mid); margin: 0; line-height: 1.85;">AIは感情移入しません。クライアントの悩みを受け取っても、余分な共感や誘導を加えない。その性質が、クライアント自身の内省を純粋に引き出す場として機能します。受け取ったレポートを元に、何を感じ、何を選ぶか——その問いをAIと一緒に深めることは、オペレーターとの距離感を保ちながら自分と向き合う手段として有効だと考えています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 導入の経緯 -->
+<section id="origin" class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Origin</p>
+    <h2>導入の経緯</h2>
+    <p class="deep-intro">正直に書きます。AIを使い始めたのは、タイムウェーバーのセッション品質を上げたかったからです。</p>
+
+    <div class="origin-timeline">
+
+      <div class="origin-item">
+        <div class="origin-dot">2020<br>頃</div>
+        <div class="origin-body">
+          <h3>満足度が低いケースが続く</h3>
+          <p>タイムウェーバーのセッションを受けたお客さんの中で、「何を言われているのかわからない」という反応が出始めました。今思えば原因ははっきりしていて、データベースの読み解きの難しさを自分がまだ消化できていなかった。</p>
+        </div>
+      </div>
+
+      <div class="origin-item">
+        <div class="origin-dot">背景</div>
+        <div class="origin-body">
+          <h3>タイムウェーバーのDBはとにかく難解</h3>
+          <p>タイムウェーバーはもともと医療用に開発されたデバイスで、専門用語が多い。さらにマーカス・シュミーク氏の感性がそのままデータベースに反映されているため、スピリチュアル・カルマ・チャクラ・インド風水・心理学・ビジネスと、テーマの専門性がものすごく高い。しかもすべて英語。翻訳するだけでなく、「このテーマがこの人の状況や文脈とどう接続しているか」という解釈まで毎回必要になります。</p>
+          <p class="origin-note">これがずっとセッションの壁になっていました。</p>
+        </div>
+      </div>
+
+      <div class="origin-item">
+        <div class="origin-dot origin-dot--key">2023<br>春</div>
+        <div class="origin-body">
+          <h3>ChatGPTと出会う</h3>
+          <p>存在を知って、試しに使ってみた瞬間に価値観が変わりました。「これは使える」と即思った。当時はまだGPT-3.5のころ。英語のマーカーを貼り付けて文脈を渡すと、解釈の候補を整理してくれる。そのスピードと精度に、使い続ける確信が生まれました。</p>
+          <p class="origin-note">出始めのころに作ったプロンプトは今でも現役です。</p>
+        </div>
+      </div>
+
+      <div class="origin-item">
+        <div class="origin-dot">4→5</div>
+        <div class="origin-body">
+          <h3>GPTの進化とともに活用が深まる</h3>
+          <p>GPT-3.5からGPT-4、そして現在のバージョンへ。モデルが更新されるたびに精度が上がり、できることが増えた。セッションの解釈補助だけでなく、フォーカステキストの言語化やレポート整理にも使うようになり、今のスタイルが定着しました。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- なぜこのスタイルにたどり着いたか -->
+<section id="stance" class="section fade-in">
+  <div class="container">
+    <p class="section-label">My Stance</p>
+    <h2>なぜこのスタイルに<br>たどり着いたか</h2>
+
+    <div class="stance-block">
+
+      <p>「スピ系っぽく見られたくない」という気持ちが最初にありました。感覚だけで何かを断言したり、「あなたはこういう人です」と決めつけるスタイルが、自分には合わなかった。</p>
+
+      <p>かといって、スピリチュアルな領域を否定したいわけでもない。目に見えないものが人の状態に影響していることは、自分の経験上でも否定できない。</p>
+
+      <div class="stance-pull">
+        再現性があって、説明できて、<br>それでいて感性を大切にする——<br>そういうスタイルが欲しかった。
+      </div>
+
+      <p>タイムウェーバーに出会って、デバイスが「客観的な解析の軸」を持ってくれることに可能性を感じました。AIと組み合わせることで、「主観で言っている」ではなく「この文脈でこう読める」という形で届けられるようになった。</p>
+
+      <p>スピリチュアル3.0は、わたしにとって「自分が納得して使えるスタイル」の名前です。提唱したいというより、こうやって使っているということを正直に話したくてこのページを作りました。</p>
+
+      <p>共鳴・整える・自立——この3つがタイムウェーバー8のすべての根っこにあります。AIはその精度を上げるための道具であり、中心にあるのは変わらず人と人のセッションです。</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- これからの展望 -->
+<section id="future" class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Future</p>
+    <h2>これからの<br>AIとの付き合い方</h2>
+    <p class="deep-intro">今後、このサイト内にAIを使ったツールを少しずつ増やしていく予定です。</p>
+
+    <div class="ai-use-grid" style="margin-top: 36px;">
+      <div class="ai-use-card">
+        <div class="ai-use-icon">📌</div>
+        <div class="ai-use-body">
+          <h3>レポートから「次の行動」を探す</h3>
+          <p>セッションで受け取ったレポートをもとに、どんな行動をとればいいか、何に注目すればいいかのヒントをAIと一緒に引き出すツールを想定しています。</p>
+        </div>
+      </div>
+      <div class="ai-use-card">
+        <div class="ai-use-icon">✨</div>
+        <div class="ai-use-body">
+          <h3>フォーカステキストをAIと作る</h3>
+          <p>悩みや目標・願望をもとにフォーカステキストを一緒に整えるサポートは、すでにセッション前の対応として実践しています。今後はサイト上で直接使えるツールとして整備していく予定です。</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 0.87rem; color: var(--text-mid); line-height: 1.85;">いずれも「AIに任せる」ではなく、「AIと一緒に自分を整理する」という設計です。使う人が主体でいられるようなツールにしたいと思っています。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta fade-in">
+  <div class="container">
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Session</p>
+    <h2>セッションを受けてみる</h2>
+    <p>LINEテキスト納品とZoomオンライン対面の2種類。<br>初めての方向けのお試しコースからご利用いただけます。</p>
+    <div class="cta-btn-group">
+      <a href="session.html" class="btn-primary">セッションメニューを見る</a>
+      <a href="line.html" class="btn-secondary btn-line">LINE で相談する</a>
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA セクション -->
+<section class="section-cta fade-in">
+  <div class="container">
+    <div class="cta-circles" aria-hidden="true">
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+      <span class="cta-circle"></span>
+    </div>
+    <p class="section-label">Contact</p>
+    <h2>まずはLINEで<br>ご相談ください</h2>
+    <p>お問い合わせ・セッションのご相談はLINEのみで受け付けています。<br>メールでのお問い合わせは行っておりません。</p>
+    <div class="cta-btn-group">
+      <a href="line.html" class="btn-primary btn-line">LINE で相談する</a>
+      <a href="https://chatgpt.com/g/g-678b62ce7454819181c1762fed1bbb4e-taimuueha8noq-ahotuto" target="_blank" rel="noopener" class="btn-secondary">まず ChatGPT に聞いてみる</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">タイムウェーバー8</a>
+    <nav class="footer-nav">
+      <a href="about.html">タイムウェーバーとは</a>
+      <a href="healy.html">ヒーリーとは</a>
+      <a href="session.html">セッション</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="profile.html">プロフィール</a>
+      <a href="blog/">ブログ</a>
+      <a href="qa.html">よくある質問</a>
+      <a href="power.html">パワースポット</a>
+      
+    </nav>
+    <div class="footer-sns">
+      <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.56 0H2.44A2.44 2.44 0 0 0 0 2.44v19.12A2.44 2.44 0 0 0 2.44 24h19.12A2.44 2.44 0 0 0 24 21.56V2.44A2.44 2.44 0 0 0 21.56 0zm-4.1 16.12a.63.63 0 0 1-.62.52h-1.26a.63.63 0 0 1-.62-.52l-.42-2.62H9.46l-.42 2.62a.63.63 0 0 1-.62.52H7.16a.63.63 0 0 1-.62-.72l2-10.74a.63.63 0 0 1 .62-.52h5.68a.63.63 0 0 1 .62.52l2 10.74a.6.6 0 0 1 0 .2zm-5.5-8.74-.9 4.74h1.88l-.98-4.74z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@timewaver8" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.13-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.55A3.02 3.02 0 0 0 .5 6.19 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.13 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.37-.55a3.02 3.02 0 0 0 2.13-2.14A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      </a>
+      <a href="line.html" aria-label="LINE公式">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 4.86.5 10.24c0 4.75 4.22 8.72 9.93 9.6.39.08.91.26 1.05.59.12.3.08.78.04 1.08l-.17 1.01c-.05.3-.24 1.18 1.03.64s6.86-4.04 9.36-6.91A8.54 8.54 0 0 0 23.5 10.24C23.5 4.86 18.35.5 12 .5zM7.64 13.15H5.57a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 1.14 0v3.05h1.5a.57.57 0 0 1 0 1.14zm2.06-.57a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 1.14 0zm4.69 0a.57.57 0 0 1-.57.57h-.03a.57.57 0 0 1-.46-.23l-1.96-2.67v2.33a.57.57 0 0 1-1.14 0V8.96a.57.57 0 0 1 .57-.57h.04c.18 0 .35.09.46.23l1.96 2.67V8.96a.57.57 0 0 1 1.14 0v3.62zm3.07-2.33a.57.57 0 0 1 0 1.14h-1.5v.62h1.5a.57.57 0 0 1 0 1.14H15.4a.57.57 0 0 1-.57-.57V8.96a.57.57 0 0 1 .57-.57h2.06a.57.57 0 0 1 0 1.14h-1.5v.72z"/></svg>
+      </a>
+    </div>
+    <div class="footer-legal">
+      <a href="pp.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="tokusho.html">特定商取引法に基づく表記</a>
+    </div>
+    <p class="copyright">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="ページトップへ戻る">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

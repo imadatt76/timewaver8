@@ -11,9 +11,156 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="page-summary" content="ヒーリーについて調べてきました。自分に合いそうなプログラムや使い方について相談したいです。
 
-ヒーリーはドイツ製のウェアラブルデバイスで、個別化マイクロカレント周波数（IMF）を使って生体エネルギーフィールドを調和させます。タイムウェーバーと同じ開発者・マーカス・シュミーク氏が手がけました。スマートフォンアプリと連動し、200以上のプログラムを使い分けます。カテゴリはチャクラ・経絡・メンタルバランス・睡眠・フィットネス・美容・生体エネルギーハーモニーなど多岐にわたります。マグヒーリーは磁場で空間や水に働きかける補完デバイスです。
+ヒーリーはドイツ製のウェアラブルデバイスで、個別化マイクロカレント周波数（IMF）を使って生体エネルギーフィールドを調和させます。タイムウェーバーと同じ開発者・マーカス・シュミーク氏が手がけました。スマートフォンアプリと連動し、200以上のプログラムを使い分けます。カテゴリはチャクラ・経絡・メンタルバランス・睡眠・フィットネス・美容・生体エネルギーハーモニーなど多岐にわたります。マグヒーリーは磁場で空間や水に働きかける補完デバイスです。タイムウェーバーが情報フィールド（深い潜在意識・高次元）に働きかけるのに対し、ヒーリーは3次元（体・心・日常）を整えるデバイスです。ヒーリーは紹介制のネットワークビジネスで販売されています。
 
 今の自分の状況を話すので、まず聞いてください。">
+  <style>
+    /* 小さいタイムウェーバー */
+    .mini-tw-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 36px;
+      border: 1px solid rgba(160,120,64,0.2);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .mini-tw-row {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(160,120,64,0.15);
+    }
+    .mini-tw-row:last-child { border-bottom: none; }
+    .mini-tw-label {
+      width: 90px;
+      flex-shrink: 0;
+      padding: 16px;
+      background: rgba(160,120,64,0.07);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #a07840;
+      display: flex;
+      align-items: center;
+    }
+    .mini-tw-body {
+      flex: 1;
+      padding: 16px;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    @media (min-width: 769px) {
+      .mini-tw-label { width: 110px; font-size: 0.82rem; }
+      .mini-tw-body { font-size: 0.88rem; }
+    }
+
+    /* タイムウェーバーとの比較 */
+    .compare-table {
+      margin-top: 36px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(160,120,64,0.2);
+    }
+    .compare-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: rgba(160,120,64,0.1);
+    }
+    .compare-header-cell {
+      padding: 12px 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #a07840;
+      border-right: 1px solid rgba(160,120,64,0.15);
+    }
+    .compare-header-cell:last-child { border-right: none; }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid rgba(160,120,64,0.12);
+    }
+    .compare-cell {
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      border-right: 1px solid rgba(160,120,64,0.1);
+    }
+    .compare-cell:last-child { border-right: none; }
+    .compare-cell strong {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    @media (min-width: 769px) {
+      .compare-header-cell { padding: 14px 20px; font-size: 0.85rem; }
+      .compare-cell { padding: 16px 20px; font-size: 0.85rem; }
+    }
+
+    /* ヒーリーの入手方法 */
+    .intro-note {
+      margin-top: 32px;
+      padding: 24px 28px;
+      border: 1px solid rgba(160,120,64,0.25);
+      border-radius: 12px;
+      background: rgba(160,120,64,0.04);
+    }
+    .intro-note p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin: 0 0 12px;
+    }
+    .intro-note p:last-child { margin-bottom: 0; }
+    .intro-note strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* 無料体験 */
+    .trial-card {
+      margin-top: 36px;
+      border-radius: 12px;
+      background: var(--bg-alt);
+      padding: 28px 24px;
+    }
+    .trial-card h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+    .trial-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin: 0 0 20px;
+    }
+    .trial-areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .trial-area-tag {
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      background: rgba(160,120,64,0.12);
+      color: #a07840;
+      font-weight: 500;
+    }
+    .trial-note {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      margin: 8px 0 0 !important;
+    }
+    @media (min-width: 769px) {
+      .trial-card { padding: 36px 40px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -82,8 +229,61 @@
   </div>
 </section>
 
-<!-- 仕組み -->
+<!-- 2つのアプリ -->
 <section class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Two Apps</p>
+    <h2>ピンクアプリとブルーアプリ</h2>
+    <p>ヒーリーはスマートフォンアプリで操作します。アプリは2種類あり、働きかける「レイヤー」が異なります。</p>
+    <div class="mini-tw-grid" style="margin-top: 32px;">
+      <div class="mini-tw-row">
+        <div class="mini-tw-label" style="background: rgba(220,100,120,0.08); color: #c06070;">ピンクアプリ</div>
+        <div class="mini-tw-body">
+          <strong style="font-size: 0.88rem; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px;">3次元の調整</strong>
+          体・感情・日常のエネルギーを整えるアプリ。200以上のプログラム（チャクラ・経絡・メンタルバランス・睡眠など）をその日の状態に合わせて使います。
+        </div>
+      </div>
+      <div class="mini-tw-row">
+        <div class="mini-tw-label" style="background: rgba(60,100,180,0.07); color: #4070b0;">ブルーアプリ</div>
+        <div class="mini-tw-body">
+          <strong style="font-size: 0.88rem; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px;">情報フィールドへのアクセス</strong>
+          タイムウェーバーと同様に情報フィールドにアクセスして調整するアプリ。オーラ（チャクラ）の分析と調整、フォーカステキストを使ったコーチングの分析と調整などが可能です。ただしタイムウェーバーよりデータベース数・分析の多角性は限られます。
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 24px; font-size: 0.88rem; color: var(--text-mid); line-height: 1.85; padding: 20px 24px; background: rgba(160,120,64,0.06); border-left: 3px solid #a07840;">ヒーリー1台で3次元も情報フィールドも、ひと通り対応できます。タイムウェーバーと組み合わせると、ブルーアプリでは届かない深い潜在意識の分析・調整が加わり、ヒーリーの効果がより引き出されます。</p>
+  </div>
+</section>
+
+<!-- 小さいタイムウェーバーと呼ばれる理由 -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <p class="section-label">Why "Mini TimeWaver"</p>
+    <h2>「小さいタイムウェーバー」と<br>呼ばれる理由</h2>
+    <p>ヒーリーは、ユーザーの間で「小さいタイムウェーバー」と呼ばれることがあります。同じ開発者・同じ思想体系から生まれたデバイスだからです。</p>
+    <div class="mini-tw-grid">
+      <div class="mini-tw-row">
+        <div class="mini-tw-label">開発者</div>
+        <div class="mini-tw-body">タイムウェーバー・ヒーリー両方を手がけたのは、ドイツの物理学者マーカス・シュミーク氏。量子物理学とスピリチュアリティを統合する哲学から、どちらも生まれています。</div>
+      </div>
+      <div class="mini-tw-row">
+        <div class="mini-tw-label">哲学</div>
+        <div class="mini-tw-body">「すべては情報→エネルギー→振動→周波数→物質という階層で成り立っている」という基本思想は共通。どちらも「結果」ではなく「エネルギーの流れ」に働きかけます。</div>
+      </div>
+      <div class="mini-tw-row">
+        <div class="mini-tw-label">違い</div>
+        <div class="mini-tw-body">タイムウェーバーが専用の大型機器でオペレーターが使うのに対し、ヒーリーは手のひらサイズのウェアラブル。個人が毎日、自分のペースで使えるように設計されています。</div>
+      </div>
+      <div class="mini-tw-row">
+        <div class="mini-tw-label">関係性</div>
+        <div class="mini-tw-body">ヒーリーはピンクアプリ（3次元調整）とブルーアプリ（情報フィールドアクセス）の両方を持ちます。タイムウェーバーも情報フィールドにアクセスしますが、データベースの多さ・分析の深さ・多角性では圧倒的に上です。同じ思想の「スケールの違う2つのデバイス」という関係です。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 仕組み -->
+<section class="section fade-in">
   <div class="container section-inner">
     <div class="section-circle-deco"></div>
     <div class="section-body">
@@ -120,7 +320,7 @@
 </section>
 
 <!-- プログラムカテゴリ -->
-<section class="section fade-in">
+<section class="section section-alt fade-in">
   <div class="container">
     <p class="section-label">Programs</p>
     <h2>プログラムカテゴリ一覧</h2>
@@ -146,6 +346,60 @@
       <span class="program-tag">セルウェーブ</span>
       <span class="program-tag">マインドウェーブ</span>
     </div>
+  </div>
+</section>
+
+<!-- タイムウェーバーとの違い -->
+<section class="section fade-in">
+  <div class="container">
+    <p class="section-label">Comparison</p>
+    <h2>タイムウェーバーとヒーリーの違い</h2>
+    <p>同じ開発者・同じ思想でも、働きかける「レイヤー」と「用途」は異なります。どちらが優れているということではなく、それぞれが担う役割が違います。</p>
+    <div class="compare-table">
+      <div class="compare-header">
+        <div class="compare-header-cell"></div>
+        <div class="compare-header-cell">TimeWaver</div>
+        <div class="compare-header-cell">Healy</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell"><strong>次元・領域</strong></div>
+        <div class="compare-cell">情報フィールド・潜在意識層<br>（高次元・深層）</div>
+        <div class="compare-cell">ピンクアプリ：3次元（体・感情・日常環境）<br>ブルーアプリ：情報フィールドへのアクセスも可能</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell"><strong>公式用途</strong></div>
+        <div class="compare-cell">EU医療機器認証（Class IIa）取得。医療・健康管理・コーチングの補助ツールとして使用</div>
+        <div class="compare-cell">ウェルネス・ウェルビーイング目的のデバイス。日常の体調管理・エネルギーサポートに使用</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell"><strong>使い方</strong></div>
+        <div class="compare-cell">オペレーターがセッション形式で使用。遠隔でも対応</div>
+        <div class="compare-cell">自分でアプリを操作して日常使い。ウェアラブルで外出中も使用可</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell"><strong>アプローチ</strong></div>
+        <div class="compare-cell">根本にある情報パターンや原因構造に働きかける</div>
+        <div class="compare-cell">今の状態に合わせた周波数で、体とエネルギーを直接サポートする</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell"><strong>組み合わせ</strong></div>
+        <div class="compare-cell" colspan="2" style="grid-column: 2 / 4; color: var(--text-mid);">高次（TW）から整えたエネルギーを、3次元（ヒーリー）で受け取る。2つを組み合わせることで、変化が日常に根ざしたものになります。</div>
+      </div>
+    </div>
+
+    <div class="two-layer-grid" style="margin-top: 40px;">
+      <div class="two-layer-card">
+        <span class="two-layer-tag">TimeWaver</span>
+        <h3>高次のレイヤー</h3>
+        <p>潜在意識・情報フィールドといった深い領域にアクセスし、エネルギーの根本パターンを最適化します。気づいていない原因に働きかけるアプローチです。</p>
+      </div>
+      <div class="two-layer-card two-layer-card--healy">
+        <span class="two-layer-tag">Healy</span>
+        <h3>3次元 ＋ 情報フィールド</h3>
+        <p>ピンクアプリで体・感情・日常を整えながら、ブルーアプリで情報フィールドにも働きかけられます。1台でひと通りカバーできますが、深い分析・多角的な調整はタイムウェーバーと組み合わせることで格段に広がります。</p>
+      </div>
+    </div>
+    <p class="two-layer-summary">高次を整えてエネルギーを受け取る。3次元を整えてそれを余すことなく活かす。この2つのアプローチを組み合わせることで、変化がより深く、より日常に根ざしたものになります。</p>
   </div>
 </section>
 
@@ -183,24 +437,45 @@
   </div>
 </section>
 
-<!-- 2レイヤー -->
+<!-- ヒーリーの入手方法 -->
+<section class="section fade-in">
+  <div class="container">
+    <p class="section-label">How to use Healy</p>
+    <h2>ヒーリーを手に入れる・活かす</h2>
+    <p>ヒーリーは紹介制のネットワークビジネス（MLM）で販売されているデバイスです。購入には紹介者が必要で、一般のECサイトでは取り扱いがありません。実際に使っている人から直接説明を受けながら検討できるのが、この形式の特徴です。</p>
+    <div class="intro-note" style="margin-top: 32px;">
+      <p><strong>① 紹介（MLM）として収益を得る</strong><br>
+      ヒーリーを気に入った人に紹介し、購入されると報酬が発生します。型やマニュアルのある仕組みに乗りながら、副業・在宅ワークとして取り組める形です。</p>
+      <p><strong>② オペレーターとしてセッションで稼ぐ</strong><br>
+      MLMとは別に、ヒーリーをセッションツールとして使い、施術・セッション料金として収益を得る方法もあります。ネットワークビジネスに抵抗がある方でも、技術者・オペレーターとして活動できます。<br>
+      <a href="session.html#healy" class="link-arrow" style="margin-top: 10px; display: inline-block; font-size: 0.85rem;">ヒーリーセッションについて →<span style="font-size:0.75rem; color:var(--text-mid); font-weight:400;"> 準備中</span></a></p>
+      <p><strong>③ 既存の仕事に取り入れて付加価値をつくる</strong><br>
+      マッサージ・コーチング・ヨガ・エステなど、すでに何らかのサービスを提供している方がヒーリーを組み合わせることで、メニューの幅と単価を広げることができます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 無料体験の案内 -->
 <section class="section section-alt fade-in">
   <div class="container">
-    <p class="section-label">Two Layers</p>
-    <h2>高次と3次元、<br>2つのレイヤーで整える</h2>
-    <div class="two-layer-grid">
-      <div class="two-layer-card">
-        <span class="two-layer-tag">TimeWaver</span>
-        <h3>高次のレイヤー</h3>
-        <p>潜在意識・情報フィールドといった高次の領域にアクセスし、エネルギーを最適化します。根本にあるパターンや原因へのアプローチです。</p>
+    <p class="section-label">Free Trial</p>
+    <h2>ヒーリー＆マグヒーリーの<br>無料体験について</h2>
+    <p>「気になっているけど、実際どんな感じか体験してみたい」という方のために、ヒーリー＆マグヒーリーの無料体験を行っています。</p>
+    <div class="trial-card">
+      <h3>対象エリア</h3>
+      <div class="trial-areas">
+        <span class="trial-area-tag">関西圏（大阪・京都・兵庫・奈良・滋賀）</span>
+        <span class="trial-area-tag">名古屋市</span>
+        <span class="trial-area-tag">札幌市</span>
+        <span class="trial-area-tag">東京都・首都近郊</span>
       </div>
-      <div class="two-layer-card two-layer-card--healy">
-        <span class="two-layer-tag">Healy</span>
-        <h3>3次元のレイヤー</h3>
-        <p>心・体・環境といった3次元レベルを整えます。日常の中で継続的に使うことで、高次から受け取るエネルギーの受け皿をつくります。</p>
-      </div>
+      <p class="trial-note">※関西圏はいまだが対応。東京・名古屋・札幌はタイムウェーバー8グループのオペレーターが対応します。</p>
     </div>
-    <p class="two-layer-summary">高次を整えてエネルギーを受け取る。3次元を整えてそれを余すことなく受け取る。この2つのアプローチを組み合わせることで、変化がより深く、より日常に根ざしたものになります。</p>
+    <div class="trial-card" style="margin-top: 16px;">
+      <h3>体験の内容</h3>
+      <p>ヒーリー（微弱電流と周波数）とマグヒーリー（磁場）の2つをセットで体験できます。ご自宅やカフェなど、ご希望の場所へ伺います。お一人でもグループでもOK。所要時間は30分〜1時間ほど。初回無料です（エリア・内容により一部条件あり）。</p>
+      <a href="" class="link-arrow">体験・無料セッションについて詳しく読む →</a>
+    </div>
   </div>
 </section>
 
@@ -236,6 +511,7 @@
       <a href="profile.html">プロフィール</a>
       <a href="blog/">ブログ</a>
       <a href="qa.html">よくある質問</a>
+      <a href="power.html">パワースポット</a>
     </nav>
     <div class="footer-sns">
       <a href="https://note.com/magic_briony9877" target="_blank" rel="noopener" aria-label="note">
@@ -251,8 +527,9 @@
     <div class="footer-legal">
       <a href="pp.html">プライバシーポリシー</a>
       <a href="terms.html">利用規約</a>
+      <a href="tokusho.html">特定商取引法に基づく表記</a>
     </div>
-    <p class="footer-copy">&copy; タイムウェーバー8 今田</p>
+    <p class="footer-copy">Copyright(C) 2021 タイムウェーバー8. All rights reserved</p>
   </div>
 </footer>
 
