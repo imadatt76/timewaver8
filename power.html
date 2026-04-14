@@ -55,6 +55,8 @@
       width: 450px;
       height: 450px;
       flex-shrink: 0;
+      transform: scale(0.68);
+      margin: -72px 0;
     }
 
     /* 全レイヤー共通：中心に絶対配置 */
@@ -313,7 +315,7 @@
     ============================================ */
     .power-text {
       text-align: center;
-      margin-top: 56px;
+      margin-top: 32px;
       position: relative;
       z-index: 2;
     }
@@ -421,13 +423,13 @@
     /* ============================================
        モバイル対応
     ============================================ */
-    @media (max-width: 500px) {
+    @media (min-width: 501px) {
       .mandala-stage {
-        transform: scale(0.68);
-        margin: -72px 0;
+        transform: none;
+        margin: 0;
       }
       .power-text {
-        margin-top: 32px;
+        margin-top: 56px;
       }
     }
 

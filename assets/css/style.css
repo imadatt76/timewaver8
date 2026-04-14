@@ -34,6 +34,14 @@ body {
   background: var(--bg);
 }
 
+/* 孤立文字防止（センター揃えテキストの最終行が1〜2文字になるのを抑制） */
+h1, h2, h3, h4, h5 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
 a {
   color: inherit;
   text-decoration: none;

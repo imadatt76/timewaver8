@@ -22,16 +22,17 @@
     }
     .tokusho-table th,
     .tokusho-table td {
-      padding: 16px 20px;
+      padding: 14px 12px;
       border-bottom: 1px solid var(--bg-alt);
       vertical-align: top;
       text-align: left;
     }
     .tokusho-table th {
-      width: 30%;
+      width: 36%;
       color: var(--text-mid);
       font-weight: 500;
-      white-space: nowrap;
+      font-size: 0.82rem;
+      white-space: normal;
       background: rgba(160,120,64,0.04);
     }
     .tokusho-table td {
@@ -57,15 +58,15 @@
       line-height: 1.8;
       color: var(--text-mid);
     }
-    @media (max-width: 600px) {
-      .tokusho-table th {
-        width: 36%;
-        font-size: 0.82rem;
-        white-space: normal;
-      }
+    @media (min-width: 601px) {
       .tokusho-table th,
       .tokusho-table td {
-        padding: 14px 12px;
+        padding: 16px 20px;
+      }
+      .tokusho-table th {
+        width: 30%;
+        font-size: inherit;
+        white-space: nowrap;
       }
     }
   </style>
