@@ -34,12 +34,18 @@ body {
   background: var(--bg);
 }
 
-/* 孤立文字防止（センター揃えテキストの最終行が1〜2文字になるのを抑制） */
+/* 孤立文字防止 */
 h1, h2, h3, h4, h5 {
   text-wrap: balance;
 }
 p {
   text-wrap: pretty;
+}
+
+/* モバイル用改行ユーティリティ（デスクトップでは非表示） */
+.sp-br { display: inline; }
+@media (min-width: 769px) {
+  .sp-br { display: none; }
 }
 
 a {
@@ -432,7 +438,7 @@ ul {
   gap: 52px;
   width: 100%;
   max-width: 960px;
-  text-align: center;
+  text-align: left;
 }
 
 /* --- 3つの丸 --- */
@@ -637,7 +643,7 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 .section-inner--reverse {
@@ -1218,7 +1224,7 @@ ul {
 
 .page-hero {
   padding: 160px 0 80px;
-  text-align: center;
+  text-align: left;
 }
 
 .page-hero h1 {
